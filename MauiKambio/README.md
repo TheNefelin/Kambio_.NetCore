@@ -7,6 +7,27 @@
 ### Dependencias
 
 ### Estructura
+```
+MauiAdminApp/
+│
+├── Pages/
+│   ├── LoginPage.xaml      (.cs)
+│   └── SettingsPage.xaml   (.cs)
+├── Resources/
+│   ├── AppIcon/
+│   ├── Fonts/
+│   ├── Images/
+│   ├── raw/
+│   ├── Splash/
+│   └── Styles/
+├── Services/
+│   ├── Serv1.cs
+│   └── Serv2.cs
+├── App.xaml        (.cs)
+├── AppShell.xaml   (.cs)
+├── MauiProgram.cs
+└── README.md
+```
 
 ## Configuraciones
 ### Cambiar color barra superior segun plataforma
@@ -38,6 +59,13 @@ public override bool FinishedLaunching(UIApplication app, NSDictionary options)
 ### Cambiar en icon de la app  
 * Modificar el icono en **\Resources\AppIcon\appiconfg.svg** (Photopea) <br>
 * Cambiar el color de fondo en **\Resources\AppIcon\appicon.svg** (Photopea)
+
+### Forzar tema Dark o Light **App.xaml.cs**
+```
+InitializeComponent();
+
+Application.Current.UserAppTheme = AppTheme.Light;
+```
 
 ### Colores
 * .\Platforms\Android\Resources\values\colors.xml?
