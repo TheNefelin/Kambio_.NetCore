@@ -33,14 +33,14 @@ public override bool FinishedLaunching(UIApplication app, NSDictionary options)
 ```
 
 ### Cambiar el welcome screen logo y color de fondo segun plataforma
+* Modificar el icono en **\Resources\Splash\splash.svg** (Photopea)
+
+### Cambiar en icon de la app  
+* Modificar el icono en **\Resources\AppIcon\appiconfg.svg** (Photopea) <br>
+* Cambiar el color de fondo en **\Resources\AppIcon\appicon.svg** (Photopea)
+
+### Colores
 * .\Platforms\Android\Resources\values\colors.xml?
-```
-```
-
-* * Cambiar en icon de la app  
-Modificar el icono en **\Resources\AppIcon\appiconfg.svg** (Photopea) <br>
-Cambiar el color de fondo en **\Resources\AppIcon\appicon.svg** (Photopea)
-
 
 ## Para Lectura
 * Text: El texto que muestra el control (usado en Label, Button, etc.).
