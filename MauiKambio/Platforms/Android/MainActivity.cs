@@ -11,6 +11,7 @@ namespace MauiKambio
         {
             base.OnCreate(savedInstanceState);
             Window.SetStatusBarColor(Android.Graphics.Color.ParseColor("#08bdbd"));
+            Window.SetNavigationBarColor(Android.Graphics.Color.ParseColor("#08bdbd"));
         }
     }
 }

@@ -16,6 +16,9 @@ namespace MauiKambio
             // Si estás usando un color específico, puedes establecer el color del fondo de la barra de estado
             UINavigationBar.Appearance.BarTintColor = UIColor.FromRGB(8, 189, 189); // Cambia a tu color deseado
 
+            // Configurar el color de la barra de navegación si estás utilizando navegación
+            UITabBar.Appearance.BarTintColor = UIColor.FromRGB(8, 189, 189); // Cambia a tu color deseado
+
             return base.FinishedLaunching(app, options);
         }
     }
