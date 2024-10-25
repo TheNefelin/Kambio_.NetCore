@@ -7,6 +7,11 @@
     Shell.FlyoutBehavior="Disabled"
     Title="MauiKambio">
 
+    <!-- Barra de herramientas superior -->
+    <Shell.ToolbarItems>
+        <ToolbarItem x:Name="Logout" Text="Cerrar Sesión"/>
+    </Shell.ToolbarItems>
+    
     <TabBar>
         <Tab Title="Explorar" Icon="icon_search_512.png">
             <ShellContent ContentTemplate="{DataTemplate local:ExplorerPage}" />
