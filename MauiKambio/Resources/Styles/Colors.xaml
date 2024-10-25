@@ -8,7 +8,7 @@
 
     <Color x:Key="GreenSoft">#08bdbd</Color>
     <Color x:Key="GreenHard">#008f90</Color>
-    <Color x:Key="Background">#e1ebed</Color>
+    <Color x:Key="BackgroundGrey">#e1ebed</Color>
 
     <Color x:Key="Primary">#512BD4</Color>
     <Color x:Key="PrimaryDark">#ac99ea</Color>

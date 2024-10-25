@@ -13,8 +13,8 @@
         <Image Grid.Row="0" Source="logo.png" Aspect="AspectFill"/>
 
         <StackLayout Grid.Row="1" VerticalOptions="Center" Spacing="10" Padding="40,10">
-            <Button Text="Iniciar Sesión con Apple" CornerRadius="50" ImageSource="icon_apple_32.png"/>
-            <Button Text="Iniciar Sesión con Gmail" CornerRadius="50" ImageSource="icon_gmail_32.png"/>
+            <Button Clicked="OnLoginApple" Text="Iniciar Sesión con Apple" CornerRadius="50" ImageSource="icon_apple_32.png"/>
+            <Button Clicked="OnLoginGmail" Text="Iniciar Sesión con Gmail" CornerRadius="50" ImageSource="icon_gmail_32.png"/>
             <Button Text="Iniciar Sesión Instagram" CornerRadius="50" ImageSource="icon_instagram_32.png"/>
         </StackLayout>
     </Grid>

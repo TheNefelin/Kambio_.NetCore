@@ -7,9 +7,22 @@
     Shell.FlyoutBehavior="Disabled"
     Title="MauiKambio">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:LoginPage}"
-        Route="MainPage" />
-
+    <TabBar>
+        <Tab Title="Explorar" Icon="icon_search_512.png">
+            <ShellContent ContentTemplate="{DataTemplate local:ExplorerPage}" />
+        </Tab>
+        <Tab Title="Trueques" Icon="icon_arrows_512.png">
+            <ShellContent ContentTemplate="{DataTemplate local:TestPage}" />
+        </Tab>
+        <Tab Title="Favoritos" Icon="icon_heart_512.png">
+            <ShellContent ContentTemplate="{DataTemplate local:TestPage}" />
+        </Tab>
+        <Tab Title="Notificaciones" Icon="icon_notification_512.png">
+            <ShellContent ContentTemplate="{DataTemplate local:TestPage}" />
+        </Tab>
+        <Tab Title="Perfil" Icon="icon_user_512.png">
+            <ShellContent ContentTemplate="{DataTemplate local:TestPage}" />
+        </Tab>
+    </TabBar>
+    
 </Shell>

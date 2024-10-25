@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiKambio.Pages.ExplorerPage"
+             Background="{StaticResource BackgroundGrey}"
+             Title="Inicio">
+
+    <StackLayout Margin="10" Spacing="10">
+        <SearchBar Placeholder="Buscar" Background="{StaticResource GreenHard}"></SearchBar>
+
+        <Grid>
+            <Button Text="Filtrar" ImageSource="icon_filter_g_32.phg" HorizontalOptions="Start" TextColor="{StaticResource GreenHard}" Background="Transparent"/>
+            <Button Text="Publicar" FontAttributes="Bold" CornerRadius="50" MinimumWidthRequest="120" HorizontalOptions="End"/>
+        </Grid>
+
+        <Grid>
+            <!-- Icono de Me Gusta -->
+            <ImageButton 
+                Source="icon_heart_r_512.png" 
+                CornerRadius="50"
+                WidthRequest="24" 
+                HeightRequest="24" 
+                VerticalOptions="Start" 
+                HorizontalOptions="End"
+                ZIndex="1"
+                Margin="10"/>
+
+            <!-- Indicación de las imágenes -->
+            <IndicatorView 
+                x:Name="indicatorView" 
+                ZIndex="1"
+                VerticalOptions="End" 
+                HorizontalOptions="Center" 
+                IndicatorSize="12"
+                SelectedIndicatorColor="{StaticResource GreenSoft}"
+                Margin="0,0,0,10"/>
+
+            <!-- CollectionView para las imágenes -->
+            <CollectionView x:Name="galleryCollectionView" 
+                ItemsSource="{Binding Images}"
+                SelectionMode="Single"
+                VerticalOptions="FillAndExpand"
+                HorizontalOptions="FillAndExpand"
+                ItemSizingStrategy="MeasureAllItems">
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Padding="0" HasShadow="False" CornerRadius="10">
+                            <Image 
+                                Source="{Binding}" 
+                                HorizontalOptions="FillAndExpand" 
+                                HeightRequest="300"
+                                Aspect="AspectFill" />
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Horizontal" ItemSpacing="10"/>
+                </CollectionView.ItemsLayout>
+            </CollectionView>
+        </Grid>
+
+        <Grid ColumnSpacing="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Frame HeightRequest="50" WidthRequest="50" CornerRadius="25" Padding="0" BackgroundColor="Transparent">
+                <ImageButton Source="user.jpg" HeightRequest="50" WidthRequest="50" Padding="0"/>
+            </Frame>
+            <Label Grid.Column="1" Text="Nombre Usuario" FontAttributes="Bold" ></Label>
+            <HorizontalStackLayout Grid.Column="1" VerticalOptions="End">
+                <Image Source="star_v_32.png" WidthRequest="30" HeightRequest="30" />
+                <Image Source="star_v_32.png" WidthRequest="30" HeightRequest="30" />
+                <Image Source="star_v_32.png" WidthRequest="30" HeightRequest="30" />
+                <Image Source="star_n_32.png" WidthRequest="30" HeightRequest="30" />
+                <Image Source="star_n_32.png" WidthRequest="30" HeightRequest="30" />
+            </HorizontalStackLayout>
+            <Button Grid.Column="3" Text="TRUEQUE" FontAttributes="Bold" CornerRadius="50" MinimumWidthRequest="120" HorizontalOptions="End"/>
+        </Grid>
+
+        <Label Text="Nombre del Producto" FontAttributes="Bold" FontSize="24"/>
+        <Label Text="Usado o Nuevo" FontAttributes="Bold"/>
+
+        <HorizontalStackLayout>
+            <Image Source="position_32.png" WidthRequest="30" HeightRequest="30"/>
+            <Label Text="ubicación" VerticalOptions="Center"/>
+        </HorizontalStackLayout>
+
+        <ScrollView>
+            <StackLayout Spacing="5">
+                <Button Text="Texto 01"></Button>
+                <Button Text="Texto 01"></Button>
+                <Button Text="Texto 01"></Button>
+                <Button Text="Texto 01"></Button>
+                <Button Text="Texto 01"></Button>
+            </StackLayout>
+        </ScrollView>
+        
+    </StackLayout>
+</ContentPage>
