@@ -23,10 +23,15 @@ graph TD;
 ```
 
 ## View
+&nbsp;
 <img src="\Requerimiento\Docs\App.png" alt="App" width="100px"/>
+&nbsp;
 
 <div>
+    &nbsp;
     <img src="\Requerimiento\Docs\LoadingApp.jpg" alt="Loading app" width="250px"/>
-    <img src="\Requerimiento\Docs\Login.jpg" alt="Login" width="250px"/>    
+    &nbsp;
+    <img src="\Requerimiento\Docs\Login.jpg" alt="Login" width="250px"/>
+    &nbsp;
 </div>
 
