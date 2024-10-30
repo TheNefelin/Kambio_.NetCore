@@ -11,14 +11,15 @@
 MauiAdminApp/
 │
 ├── Pages/
+│   ├── ExplorerPage.xaml   (.cs)
 │   ├── LoginPage.xaml      (.cs)
-│   └── SettingsPage.xaml   (.cs)
+│   └── UserPage.xaml       (.cs)
 ├── Resources/
-│   ├── AppIcon/
+│   ├── AppIcon/    (icon ejecutable)
 │   ├── Fonts/
 │   ├── Images/
-│   ├── raw/
-│   ├── Splash/
+│   ├── raw/        (multimedia video)
+│   ├── Splash/     (fondo pantalla de carga)
 │   └── Styles/
 ├── Services/
 │   ├── Serv1.cs
@@ -75,27 +76,26 @@ Application.Current.UserAppTheme = AppTheme.Light;
 * .\Platforms\Android\Resources\values\colors.xml?
 
 ## Para Lectura
-* Text: El texto que muestra el control (usado en Label, Button, etc.).
-* BackgroundColor: El color de fondo del control.
-* TextColor: El color del texto.
-* Padding: Define el espacio interno entre el contenido y los bordes del control.
-* Margin: Define el espacio externo entre el control y otros elementos.
-* HorizontalOptions y VerticalOptions: Definen cómo el control se alinea dentro de su contenedor.
-* FontSize: Define el tamaño de la fuente del texto.
-* IsVisible: Determina si el control es visible o no.
+* **Text:** El texto que muestra el control (usado en Label, Button, etc.).
+* **BackgroundColor:** El color de fondo del control.
+* **TextColor:** El color del texto.
+* **Padding:** Define el espacio interno entre el contenido y los bordes del control.
+* **Margin:** Define el espacio externo entre el control y otros elementos.
+* **HorizontalOptions y VerticalOptions:** Definen cómo el control se alinea dentro de su contenedor.
+* **FontSize:** Define el tamaño de la fuente del texto.
+* **IsVisible:** Determina si el control es visible o no.
 
-### Controles de contenio singular
+### Controles de contenido singular
 ```
-<Button Text="Click me" Clicked="OnClicked" />
+<Button Text="Click me" Clicked="OnClicked"/>
 
 <Label Text="Hello, MAUI!" />
 
-<Image Source="logo.png" />
+<Image Source="logo.png"/>
 
 <ContentPage> </ContentPage>
 
-<Frame Padding="10"> 
-</Frame>
+<Frame Padding="10"> </Frame>
 
 <ScrollView> </ScrollView>
 ```
@@ -114,15 +114,18 @@ Application.Current.UserAppTheme = AppTheme.Light;
     <Button Grid.Row="1" Text="Button" />
 </Grid>
 
-<AbsoluteLayout>
-    <Label Text="Positioned Label"
-           AbsoluteLayout.LayoutBounds="0.5, 0.5, AutoSize, AutoSize"
-           AbsoluteLayout.LayoutFlags="PositionProportional" />
-</AbsoluteLayout>
+<AbsoluteLayout> </AbsoluteLayout>
 
-<FlexLayout Direction="Row" JustifyContent="SpaceBetween">
-    <Label Text="Item 1" />
-    <Button Text="Item 2" />
-</FlexLayout>
+<FlexLayout Direction="Row" JustifyContent="SpaceBetween"> </FlexLayout>
+
+<VerticalStackLayout> </VerticalStackLayout>
+
+<HorizontalStackLayout> </HorizontalStackLayout>
+
+<ScrollView> </ScrollView>
 ```
 
+### Ejemplos
+* **Grid**
+```
+```

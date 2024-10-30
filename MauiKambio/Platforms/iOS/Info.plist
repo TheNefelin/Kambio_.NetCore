@@ -29,8 +29,8 @@
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/appicon.appiconset</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.nefelin.kambio</string>
+	<string>com.nefelin.trueke</string>
 	<key>CFBundleDisplayName</key>
-	<string>Kambio</string>
+	<string>Trueke</string>
 </dict>
 </plist>

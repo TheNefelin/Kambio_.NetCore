@@ -1,5 +1,4 @@
-using Microsoft.Maui;
-using Microsoft.Maui.Controls;
+using ClassLibraryModels.DTOs;
 using System.Collections.ObjectModel;
 
 namespace MauiKambio.Pages;
@@ -32,4 +31,5 @@ public partial class ExplorerPage : ContentPage
             indicatorView.Position = e.FirstVisibleItemIndex;
         }
     }
+
 }

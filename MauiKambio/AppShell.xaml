@@ -9,7 +9,7 @@
 
     <!-- Barra de herramientas superior -->
     <Shell.ToolbarItems>
-        <ToolbarItem x:Name="Logout" Text="Cerrar Sesión"/>
+        <ToolbarItem x:Name="Logout" Text="Cerrar Sesión" Clicked="OnLogoutClicked" />
     </Shell.ToolbarItems>
     
     <TabBar>
