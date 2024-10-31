@@ -1,35 +1,41 @@
 using ClassLibraryModels.DTOs;
+using MauiKambio.Services;
 using System.Collections.ObjectModel;
 
 namespace MauiKambio.Pages;
 
 public partial class ExplorerPage : ContentPage
 {
-    public ObservableCollection<string> Images { get; set; }
+    public ObservableCollection<ProductDTO> Products { get; set; } = new();
+    private readonly ApiProductService _productService;
 
     public ExplorerPage()
-	{
-		InitializeComponent();
+    {
+        InitializeComponent();
 
-        Images = new ObservableCollection<string>
-            {
-                "image1.png",
-                "image2.png",
-                "image3.png",
-            };
-
-        galleryCollectionView.ItemsSource = Images;
-        galleryCollectionView.Scrolled += OnGalleryScrolled;
-        indicatorView.Count = Images.Count;
+        loading.IsVisible = true;
+        BindingContext = this;
+        _productService = new ApiProductService();
+        LoadProducts();
     }
 
-    private void OnGalleryScrolled(object sender, ItemsViewScrolledEventArgs e)
+    private async void LoadProducts()
     {
-        // Actualizar el indicador con la imagen actualmente visible
-        if (e.FirstVisibleItemIndex >= 0)
+        var productList = _productService.GetAll();
+
+        foreach (var product in productList)
         {
-            indicatorView.Position = e.FirstVisibleItemIndex;
+            Products.Add(product);
+        }
+
+        loading.IsVisible = false;
+    }
+
+    private async void OnProductClicked(object sender, ProductDTO product)
+    {
+        if (product != null)
+        {
+            //await Navigation.PushAsync(new ProductPage());
         }
     }
-
 }

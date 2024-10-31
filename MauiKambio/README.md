@@ -125,7 +125,22 @@ Application.Current.UserAppTheme = AppTheme.Light;
 <ScrollView> </ScrollView>
 ```
 
-### Ejemplos
-* **Grid**
+## Binding (Vincular Datos con la Vista)
+
+### Crear Componente y pasar datos staticos
+* **Componente:** xaml tipo ContentView
+* **BindableProperty:** que permite enlazar datos externos al componente.
+* BindableProperty.Create(Nombre, TipoDeDato, ClaseDondeSeDeclara, NuloAlIniciar);
 ```
+```
+
+<hr>
+<hr>
+<hr>
+
+* En el codigo se crea un observable del elemento que se quiere hacer Bind (en una Lista, sino, Pa Ke po).
+* Deberia tener un metodo en donde se mapea los datos del servicio al observable
+* Se debe hacer un BindingContext = this en el constructor
+```
+
 ```

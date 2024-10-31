@@ -20,14 +20,19 @@
             <ShellContent ContentTemplate="{DataTemplate local:TestPage}" />
         </Tab>
         <Tab Title="Favoritos" Icon="icon_heart_512.png">
-            <ShellContent ContentTemplate="{DataTemplate local:TestPage}" />
+            <ShellContent ContentTemplate="{DataTemplate local:FavoritesPage}" />
         </Tab>
         <Tab Title="Notificaciones" Icon="icon_notification_512.png">
-            <ShellContent ContentTemplate="{DataTemplate local:TestPage}" />
+            <ShellContent ContentTemplate="{DataTemplate local:NotificationPage}" />
         </Tab>
         <Tab Title="Perfil" Icon="icon_user_512.png">
-            <ShellContent ContentTemplate="{DataTemplate local:TestPage}" />
+            <ShellContent ContentTemplate="{DataTemplate local:ProfilePage}" />
         </Tab>
     </TabBar>
-    
+
+    <ShellContent
+        Title="Login"
+        ContentTemplate="{DataTemplate local:LoadingPage}"
+        Route="LoadingPage"/>
+
 </Shell>

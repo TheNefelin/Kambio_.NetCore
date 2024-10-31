@@ -4,11 +4,44 @@ namespace MauiKambio.Services
 {
     public class ApiProductService
     {
-        public ApiProductService() { 
-        
+        private readonly List<ProductDTO> data = new List<ProductDTO>();
+
+        public ApiProductService() {
+            LoadDB();
         }
 
         public List<ProductDTO> GetAll()
+        {
+            List<ProductDTO> result = new();
+
+            foreach (var item in data) { 
+                ProductDTO dto = new()
+                {
+                    Id = item.Id,
+                    Name = item.Name,
+                    User_Id = item.User_Id,
+                    User_Name = item.User_Name,
+                    User_Img = item.User_Img,
+                    Status = item.Status,
+                    Location = item.Location,
+                    Stars = item.Stars,
+                    Like = item.Like,
+                    Images = new List<ProductImageDTO> { item.Images[0] }
+                };
+
+                result.Add(dto);
+            }
+
+            return result;
+        }
+
+        public ProductDTO? GetById(int id)
+        {
+            ProductDTO result = data.Find(e => e.Id == id);
+            return result;
+        }
+
+        private void LoadDB()
         {
             ProductImageDTO img1 = new() { Id = 1, Img = "image1.png", };
             ProductImageDTO img2 = new() { Id = 1, Img = "image2.png", };
@@ -25,11 +58,8 @@ namespace MauiKambio.Services
                 Location = "Santiago",
                 Stars = 4,
                 Like = true,
+                Images = new List<ProductImageDTO> { img1, img2, img3, },
             };
-
-            prod1.Images.Add(img1);
-            prod1.Images.Add(img2);
-            prod1.Images.Add(img3);
 
             ProductDTO prod2 = new()
             {
@@ -41,12 +71,9 @@ namespace MauiKambio.Services
                 Status = "Usado",
                 Location = "Valparaiso",
                 Stars = 3,
-                Like = false,
+                Like = true,
+                Images = new List<ProductImageDTO> { img2, img1, },
             };
-
-            prod2.Images.Add(img1);
-            prod2.Images.Add(img2);
-            prod2.Images.Add(img3);
 
             ProductDTO prod3 = new()
             {
@@ -59,13 +86,12 @@ namespace MauiKambio.Services
                 Location = "Viña del Mar",
                 Stars = 1,
                 Like = false,
+                Images = new List<ProductImageDTO> { img3, },
             };
 
-            prod3.Images.Add(img1);
-            prod3.Images.Add(img2);
-            prod3.Images.Add(img3);
-
-            return new List<ProductDTO> { prod1, prod2, prod3 };
+            data.Add(prod1);
+            data.Add(prod2);
+            data.Add(prod3);
         }
     }
 }

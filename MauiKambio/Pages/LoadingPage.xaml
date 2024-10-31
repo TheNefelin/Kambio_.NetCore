@@ -2,11 +2,12 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiKambio.Pages.LoadingPage"
+             BackgroundColor="{StaticResource BackgroundGrey}" 
              Title="LoadingPage">
 
     <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
         <!-- Aquí podrías poner una animación o un indicador de carga -->
-        <ActivityIndicator IsRunning="True"/>
+        <ActivityIndicator x:Name="loading" IsRunning="True" Color="{StaticResource GreenHard}"/>
     </StackLayout>
 
 </ContentPage>
