@@ -60,11 +60,11 @@ public partial class ProductContent : ContentView
             textContent.IsVisible = false;
 
         for (int i = 0; i <= Product.Stars; i++) {
-            star1.Source = i >= 1 ? "star_v_32.png" : "star_n_32.png";
-            star2.Source = i >= 2 ? "star_v_32.png" : "star_n_32.png";
-            star3.Source = i >= 3 ? "star_v_32.png" : "star_n_32.png";
-            star4.Source = i >= 4 ? "star_v_32.png" : "star_n_32.png";
-            star5.Source = i >= 5 ? "star_v_32.png" : "star_n_32.png";
+            star1.Source = i >= 1 ? "icon_star_v_512.png" : "icon_star_n_512.png";
+            star2.Source = i >= 2 ? "icon_star_v_512.png" : "icon_star_n_512.png";
+            star3.Source = i >= 3 ? "icon_star_v_512.png" : "icon_star_n_512.png";
+            star4.Source = i >= 4 ? "icon_star_v_512.png" : "icon_star_n_512.png";
+            star5.Source = i >= 5 ? "icon_star_v_512.png" : "icon_star_n_512.png";
         }
     }
 

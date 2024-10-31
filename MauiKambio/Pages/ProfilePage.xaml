@@ -2,11 +2,39 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiKambio.Pages.ProfilePage"
-             Title="ProfilePage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+             Background="{StaticResource BackgroundGrey}"
+             Title="Perfil">
+
+    <VerticalStackLayout Margin="20">
+        <Grid WidthRequest="300">
+            <Image Source="icon_user_512.png" HeightRequest="200"/>
+            <Button ImageSource="icon_edit_512.png" HeightRequest="50" VerticalOptions="End" HorizontalOptions="End" BackgroundColor="{StaticResource BackgroundGrey}"/>
+        </Grid>
+
+        <Label Text="Nombre Usuario" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center" Margin="0,30,0,0"/>
+
+        <HorizontalStackLayout HorizontalOptions="Center">
+            <Image x:Name="star1" Source="icon_star_n_512.png" WidthRequest="32" HeightRequest="32"/>
+            <Image x:Name="star2" Source="icon_star_n_512.png" WidthRequest="32" HeightRequest="32"/>
+            <Image x:Name="star3" Source="icon_star_n_512.png" WidthRequest="32" HeightRequest="32"/>
+            <Image x:Name="star4" Source="icon_star_n_512.png" WidthRequest="32" HeightRequest="32"/>
+            <Image x:Name="star5" Source="icon_star_n_512.png" WidthRequest="32" HeightRequest="32"/>
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout Margin="0,40,0,0">
+            <Image Source="icon_position_512.png" WidthRequest="32" Margin="20,0"/>
+            <Label Text="Ubicación" VerticalOptions="Center"/>
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout Margin="0,20,0,0">
+            <Image Source="icon_arrows_512.png" WidthRequest="32" Margin="20,0"/>
+            <Label Text="Trueques Concertados" VerticalOptions="Center"/>
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout Margin="0,20,0,0">
+            <Image Source="icon_published_512.png" WidthRequest="32" Margin="20,0"/>
+            <Label Text="Publicaciones" VerticalOptions="Center"/>
+        </HorizontalStackLayout>
     </VerticalStackLayout>
+
 </ContentPage>
