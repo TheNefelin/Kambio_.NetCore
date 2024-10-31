@@ -24,7 +24,7 @@ graph TD;
 
 ## View
 &nbsp;
-<img src="\Requerimiento\Docs\img01.jpg" alt="img01" width="100px"/>
+<img src="\Requerimiento\Docs\img01.png" alt="img01" width="100px"/>
 &nbsp;
 
 <div>
