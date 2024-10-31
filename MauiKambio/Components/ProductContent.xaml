@@ -62,8 +62,8 @@
                 <Image x:Name="star5" WidthRequest="30" HeightRequest="30"/>
             </HorizontalStackLayout>
 
-            <Button IsVisible="True" Clicked="OnProductClicked" Grid.Column="3" Text="VER" FontAttributes="Bold" CornerRadius="50" MinimumWidthRequest="120" HorizontalOptions="End"/>
-            <Button IsVisible="False" Clicked="OnProductClicked" Grid.Column="3" Text="TRUEQUE" FontAttributes="Bold" CornerRadius="50" MinimumWidthRequest="120" HorizontalOptions="End"/>
+            <Button x:Name="btnProduct" Text="VER" IsVisible="True" Clicked="OnProductClicked" Grid.Column="3" FontAttributes="Bold" CornerRadius="50" MinimumWidthRequest="120" HorizontalOptions="End"/>
+            <Button Text="TRUEQUE" IsVisible="False" Clicked="OnProductClicked" Grid.Column="3" FontAttributes="Bold" CornerRadius="50" MinimumWidthRequest="120" HorizontalOptions="End"/>
         </Grid>
 
         <!--aqui va Name de Products-->
