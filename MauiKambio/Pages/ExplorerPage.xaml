@@ -27,7 +27,7 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
 
-                        <components:ProductContent Product="{Binding}" ProductClicked="OnProductClicked"/>
+                        <components:ProductContent Product="{Binding}" ButtonText="VER" ProductClicked="OnProductClicked"/>
 
                     </DataTemplate>
                 </CollectionView.ItemTemplate>

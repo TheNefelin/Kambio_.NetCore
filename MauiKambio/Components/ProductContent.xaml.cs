@@ -4,23 +4,43 @@ namespace MauiKambio.Components;
 
 public partial class ProductContent : ContentView
 {
+    // propiedad para el evento click del btn
     public event EventHandler<ProductDTO> ProductClicked;
 
-    public static readonly BindableProperty ProductProperty = 
+    // propiedad que recibe el objeto ProductDTO
+    public static readonly BindableProperty ProductProperty =
         BindableProperty.Create(
-            nameof(Product), 
-            typeof(ProductDTO), 
-            typeof(ProductContent), 
+            nameof(Product),
+            typeof(ProductDTO),
+            typeof(ProductContent),
             default(ProductDTO),
             propertyChanged: OnProductChanged
         );
 
-    private ProductDTO Product
+    // Propiedad pública para el enlace en XAML
+    public ProductDTO Product
     {
         get => (ProductDTO)GetValue(ProductProperty);
         set => SetValue(ProductProperty, value);
     }
 
+    // propiedad que recibe un string
+    public static readonly BindableProperty ButtonTextProperty =
+        BindableProperty.Create(
+            nameof(ButtonText),
+            typeof(string),
+            typeof(ProductContent),
+            default(string)
+        );
+
+    // Propiedad pública para el enlace en XAML
+    public string ButtonText
+    {
+        get => (string)GetValue(ButtonTextProperty);
+        set => SetValue(ButtonTextProperty, value);
+    }
+
+    // constructor
     public ProductContent()
     {
         InitializeComponent();
@@ -34,6 +54,8 @@ public partial class ProductContent : ContentView
 
     private void SetStars()
     {
+        btnProduct.Text = ButtonText;
+
         for (int i = 0; i <= Product.Stars; i++) {
             star1.Source = i >= 1 ? "star_v_32.png" : "star_n_32.png";
             star2.Source = i >= 2 ? "star_v_32.png" : "star_n_32.png";
