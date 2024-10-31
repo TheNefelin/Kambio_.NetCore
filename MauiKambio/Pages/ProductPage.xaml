@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiKambio.Pages.ProductPage"
              xmlns:components="clr-namespace:MauiKambio.Components"             
-             Title="Producto">
+             Title="Artículo">
 
     <ScrollView Grid.Row="1">
         <CollectionView ItemsSource="{Binding Products}">

@@ -44,8 +44,15 @@ namespace MauiKambio.Services
         private void LoadDB()
         {
             ProductImageDTO img1 = new() { Id = 1, Img = "image1.png", };
-            ProductImageDTO img2 = new() { Id = 1, Img = "image2.png", };
-            ProductImageDTO img3 = new() { Id = 1, Img = "image3.png", };
+            ProductImageDTO img2 = new() { Id = 2, Img = "image2.png", };
+            ProductImageDTO img3 = new() { Id = 3, Img = "image3.png", };
+
+            CategoryDTO cat1 = new() { Id = 1, Name = "Vehículos" };
+            CategoryDTO cat2 = new() { Id = 2, Name = "Artículos Electrónicos" };
+            CategoryDTO cat3 = new() { Id = 3, Name = "Celulares" };
+            CategoryDTO cat4 = new() { Id = 4, Name = "Instumentos Musicales" };
+            CategoryDTO cat5 = new() { Id = 5, Name = "Muebles" };
+            CategoryDTO cat6 = new() { Id = 6, Name = "TVs" };
 
             ProductDTO prod1 = new()
             {
@@ -58,6 +65,8 @@ namespace MauiKambio.Services
                 Location = "Santiago",
                 Stars = 4,
                 Like = true,
+                Description = "Producto bla bla bla, Busco trueque por etc...",
+                BarterFor = $"{cat1.Name}, {cat3.Name}, {cat5.Name}",
                 Images = new List<ProductImageDTO> { img1, img2, img3, },
             };
 
@@ -72,6 +81,8 @@ namespace MauiKambio.Services
                 Location = "Valparaiso",
                 Stars = 3,
                 Like = true,
+                Description = "Otro producto bla bla bla, Busco trueque por etc...",
+                BarterFor = $"{cat1.Name}, {cat2.Name}, {cat3.Name}, {cat4.Name}, {cat5.Name}, {cat6.Name}",
                 Images = new List<ProductImageDTO> { img2, img1, },
             };
 
@@ -86,6 +97,8 @@ namespace MauiKambio.Services
                 Location = "Viña del Mar",
                 Stars = 1,
                 Like = false,
+                Description = "Yaaa po Cambiamelo, yaaa po bla bla bla, Busco trueque por etc...",
+                BarterFor = $"{cat2.Name}, {cat3.Name}, {cat4.Name}, {cat5.Name}",
                 Images = new List<ProductImageDTO> { img3, },
             };
 

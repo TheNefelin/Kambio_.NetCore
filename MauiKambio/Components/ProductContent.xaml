@@ -76,6 +76,14 @@
             <!--aqui va Location de Product-->
             <Label Text="{Binding Location}" VerticalOptions="Center"/>
         </HorizontalStackLayout>
+
+        <Frame x:Name="textContent" CornerRadius="5" BackgroundColor="{StaticResource GreenSoft}" BorderColor="{StaticResource GreenHard}">
+            <VerticalStackLayout Spacing="10">
+                <Label x:Name="description" Text="{Binding Description, StringFormat='Descripción: {0}'}" FontAttributes="Bold"/>
+                <Line Stroke="{StaticResource GreenHard}" X2="{Binding Width, Source={RelativeSource Self}}" HorizontalOptions="Fill"/>
+                <Label x:Name="categories" Text="{Binding BarterFor, StringFormat='Trueque Por: {0}'}" FontAttributes="Bold"/>
+            </VerticalStackLayout>
+        </Frame>
     </StackLayout>
     
 </ContentView>

@@ -56,6 +56,9 @@ public partial class ProductContent : ContentView
     {
         btnProduct.Text = ButtonText;
 
+        if (string.IsNullOrEmpty(Product.Description))
+            textContent.IsVisible = false;
+
         for (int i = 0; i <= Product.Stars; i++) {
             star1.Source = i >= 1 ? "star_v_32.png" : "star_n_32.png";
             star2.Source = i >= 2 ? "star_v_32.png" : "star_n_32.png";

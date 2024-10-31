@@ -11,6 +11,8 @@
         public string Location { get; set; } = string.Empty;
         public int Stars { get; set; }
         public bool Like { get; set; }
+        public string Description { get; set; } = string.Empty;
+        public string BarterFor { get; set; } = string.Empty;
         public List<ProductImageDTO> Images { get; set; } = new();
     }
 }
