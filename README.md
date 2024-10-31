@@ -29,9 +29,17 @@ graph TD;
 
 <div>
     &nbsp;
-    <img src="\Requerimiento\Docs\LoadingApp.jpg" alt="Loading app" width="250px"/>
+    <img src="\Requerimiento\Docs\img01.jpg" alt="img01 app" width="250px"/>
     &nbsp;
-    <img src="\Requerimiento\Docs\Login.jpg" alt="Login" width="250px"/>
+    <img src="\Requerimiento\Docs\img02.jpg" alt="img02" width="250px"/>
     &nbsp;
+    <img src="\Requerimiento\Docs\img03.jpg" alt="img03" width="250px"/>
+    &nbsp;
+    <img src="\Requerimiento\Docs\img04.jpg" alt="img04" width="250px"/>
+    &nbsp;
+    <img src="\Requerimiento\Docs\img05.jpg" alt="img05" width="250px"/>
+    &nbsp;
+    <img src="\Requerimiento\Docs\img06.jpg" alt="img06" width="250px"/>
+    &nbsp;	
 </div>
 
