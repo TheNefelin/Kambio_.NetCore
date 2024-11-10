@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:components="clr-namespace:MauiKambio.Components"
              x:Class="MauiKambio.Pages.ExplorerPage"          
-             Title="Inicio">
+             Title="Explorar">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -24,14 +23,36 @@
 
         <ScrollView Grid.Row="1">
             <CollectionView ItemsSource="{Binding Products}">
+                <CollectionView.ItemsLayout>
+                    <!-- Layout en cuadrícula con dos elementos por fila -->
+                    <GridItemsLayout Orientation="Vertical" Span="2" />
+                </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
+                        <Frame Padding="0" Margin="5" BackgroundColor="{StaticResource BackgroundGrey}" >
+                            <StackLayout>
+                                <!-- Imagen del producto -->
 
-                        <components:ProductContent Product="{Binding}" ButtonText="VER" ProductClicked="OnProductClicked"/>
+                                <CollectionView ItemsSource="{Binding Images}" SelectionMode="Single" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" ItemSizingStrategy="MeasureAllItems">
+                                    <!--deberia cargar la lista de Images-->
+                                    <CollectionView.ItemTemplate>
+                                        <DataTemplate>
+                                            <Frame BorderColor="Transparent" Padding="0" HasShadow="False" >
+                                                <Image Source="{Binding Img}" HorizontalOptions="Center"  HeightRequest="150" Aspect="AspectFill" />
+                                            </Frame>
+                                        </DataTemplate>
+                                    </CollectionView.ItemTemplate>
+                                </CollectionView>
 
+                                <!-- Descripción del producto -->
+                                <Label Text="{Binding Name}" FontAttributes="Bold" FontSize="16" HorizontalOptions="Center" />
+                                <Label Text="{Binding Status}" FontSize="12" TextColor="Gray" HorizontalOptions="Center" />
+                            </StackLayout>
+                        </Frame>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
+
         </ScrollView>
     </Grid>
     

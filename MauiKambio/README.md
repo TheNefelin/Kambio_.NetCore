@@ -101,28 +101,39 @@ Application.Current.UserAppTheme = AppTheme.Light;
 ```
 
 ### Controles de contenido multiple
+* Grid
 ```
-<StackLayout Orientation="Vertical"> </StackLayout>
-
 <Grid>
     <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
         <RowDefinition Height="*" />
     </Grid.RowDefinitions>
 
-    <Label Grid.Row="0" Text="Row 1" />
-    <Button Grid.Row="1" Text="Button" />
-</Grid>
+    <StackLayout Grid.Row="0">
+    </StackLayout>
 
-<AbsoluteLayout> </AbsoluteLayout>
+    <ScrollView Grid.Row="1">
+    </ScrollView>
+</Grid>
+```
+* ScrollView
+```
+<ScrollView> </ScrollView>
+```
+
+
+```
+<StackLayout Orientation="Vertical"> </StackLayout>
 
 <FlexLayout Direction="Row" JustifyContent="SpaceBetween"> </FlexLayout>
+
+<AbsoluteLayout> </AbsoluteLayout>
 
 <VerticalStackLayout> </VerticalStackLayout>
 
 <HorizontalStackLayout> </HorizontalStackLayout>
 
-<ScrollView> </ScrollView>
+
 ```
 
 ## Binding (Vincular Datos con la Vista)

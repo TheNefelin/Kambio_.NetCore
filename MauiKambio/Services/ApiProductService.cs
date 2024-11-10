@@ -67,6 +67,7 @@ namespace MauiKambio.Services
                 Like = true,
                 Description = "Producto bla bla bla, Busco trueque por etc...",
                 BarterFor = $"{cat1.Name}, {cat3.Name}, {cat5.Name}",
+                Image = img1,
                 Images = new List<ProductImageDTO> { img1, img2, img3, },
             };
 
@@ -83,6 +84,7 @@ namespace MauiKambio.Services
                 Like = true,
                 Description = "Otro producto bla bla bla, Busco trueque por etc...",
                 BarterFor = $"{cat1.Name}, {cat2.Name}, {cat3.Name}, {cat4.Name}, {cat5.Name}, {cat6.Name}",
+                Image = img2,
                 Images = new List<ProductImageDTO> { img2, img1, },
             };
 
@@ -99,6 +101,7 @@ namespace MauiKambio.Services
                 Like = false,
                 Description = "Yaaa po Cambiamelo, yaaa po bla bla bla, Busco trueque por etc...",
                 BarterFor = $"{cat2.Name}, {cat3.Name}, {cat4.Name}, {cat5.Name}",
+                Image = img3,
                 Images = new List<ProductImageDTO> { img3, },
             };
 
