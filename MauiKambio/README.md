@@ -131,7 +131,6 @@ Application.Current.UserAppTheme = AppTheme.Light;
 </CollectionView>
 ```
 
-
 ```
 <ScrollView> </ScrollView>
 
@@ -144,8 +143,6 @@ Application.Current.UserAppTheme = AppTheme.Light;
 <VerticalStackLayout> </VerticalStackLayout>
 
 <HorizontalStackLayout> </HorizontalStackLayout>
-
-
 ```
 
 ## Binding (Vincular Datos con la Vista)

@@ -6,8 +6,8 @@ namespace MauiKambio.Pages;
 
 public partial class ExplorerPage : ContentPage
 {
-    public ObservableCollection<ProductDTO> Products { get; set; } = new();
     private readonly ApiProductService _productService;
+    public ObservableCollection<ProductDTO> Products { get; set; } = new();
 
     public ExplorerPage()
     {
