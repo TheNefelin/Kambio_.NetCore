@@ -50,7 +50,7 @@ namespace MauiKambio.Services
             CategoryDTO cat1 = new() { Id = 1, Name = "Vehículos" };
             CategoryDTO cat2 = new() { Id = 2, Name = "Artículos Electrónicos" };
             CategoryDTO cat3 = new() { Id = 3, Name = "Celulares" };
-            CategoryDTO cat4 = new() { Id = 4, Name = "Instumentos Musicales" };
+            CategoryDTO cat4 = new() { Id = 4, Name = "Instrumentos Musicales" };
             CategoryDTO cat5 = new() { Id = 5, Name = "Muebles" };
             CategoryDTO cat6 = new() { Id = 6, Name = "TVs" };
 

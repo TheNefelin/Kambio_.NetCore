@@ -27,19 +27,17 @@
                     <!-- Layout en cuadrícula con dos elementos por fila -->
                     <GridItemsLayout Orientation="Vertical" Span="2" />
                 </CollectionView.ItemsLayout>
+                
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Frame Padding="0" Margin="5" BackgroundColor="{StaticResource BackgroundGrey}" >
                             <StackLayout>
                                 <!-- Imagen del producto -->
-
                                 <CollectionView ItemsSource="{Binding Images}" SelectionMode="Single" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" ItemSizingStrategy="MeasureAllItems">
                                     <!--deberia cargar la lista de Images-->
                                     <CollectionView.ItemTemplate>
                                         <DataTemplate>
-                                            <Frame BorderColor="Transparent" Padding="0" HasShadow="False" >
-                                                <Image Source="{Binding Img}" HorizontalOptions="Center"  HeightRequest="150" Aspect="AspectFill" />
-                                            </Frame>
+                                            <ImageButton Clicked="OnProductClicked" Source="{Binding Img}" HorizontalOptions="Center"  HeightRequest="150" Aspect="AspectFill" />
                                         </DataTemplate>
                                     </CollectionView.ItemTemplate>
                                 </CollectionView>
@@ -52,7 +50,6 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-
         </ScrollView>
     </Grid>
     

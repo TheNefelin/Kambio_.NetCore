@@ -31,8 +31,11 @@ public partial class ExplorerPage : ContentPage
         loading.IsVisible = false;
     }
 
-    private async void OnProductClicked(object sender, ProductDTO product)
+    private async void OnProductClicked(object sender, EventArgs e)
     {
+        var imageButton = (ImageButton)sender;
+        var product = (ProductDTO)((BindableObject)imageButton.Parent).BindingContext;
+
         if (product != null)
         {
             await Navigation.PushAsync(new ProductPage(product));

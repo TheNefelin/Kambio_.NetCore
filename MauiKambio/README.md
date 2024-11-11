@@ -116,13 +116,25 @@ Application.Current.UserAppTheme = AppTheme.Light;
     </ScrollView>
 </Grid>
 ```
-* ScrollView
+* CollectionView
+```
+<CollectionView ItemsSource="{Binding Products}">
+    <CollectionView.ItemsLayout>
+        <GridItemsLayout Orientation="Vertical" Span="2" />
+    </CollectionView.ItemsLayout>
+
+    <CollectionView.ItemTemplate>
+        <DataTemplate>
+            <!-- Aqui van lo Elementos a iterar de Products -->
+        </DataTemplate>
+    </CollectionView.ItemTemplate>
+</CollectionView>
+```
+
+
 ```
 <ScrollView> </ScrollView>
-```
 
-
-```
 <StackLayout Orientation="Vertical"> </StackLayout>
 
 <FlexLayout Direction="Row" JustifyContent="SpaceBetween"> </FlexLayout>
@@ -137,6 +149,49 @@ Application.Current.UserAppTheme = AppTheme.Light;
 ```
 
 ## Binding (Vincular Datos con la Vista)
+### Iterar una coleccion de elementos.
+* ObservableCollection: Permite manipular una colección reactiva.
+* El observable se debe llenar con los datos que obtienes del servicio.
+* Agregar BindingContext = this en el constructor.
+```
+public ObservableCollection<ProductDTO> Products { get; set; } = new();
+
+public Constructor()
+{
+    initializecomponent();
+    BindingContext = this;
+}
+
+private async void LoadProducts()
+{
+    var productList = _productService.GetAll();
+
+    foreach (var product in productList)
+    {
+        Products.Add(product);
+    }
+}
+```
+* Los elementos ColectionView permiten iterar el Binding.
+* Se asigna la propiedad Img de cada Product de Products en ImageButton
+```
+<CollectionView ItemsSource="{Binding Products}">
+    <ImageButton Clicked="OnProductClicked" Source="{Binding Img}"/>
+</CollectionView>
+```
+* Recuperar el Producto al Hacer clic en ImageButton a través del método
+```
+private async void OnProductClicked(object sender, EventArgs e)
+{
+    var imageButton = (ImageButton)sender;
+    var product = (ProductDTO)((BindableObject)imageButton.Parent).BindingContext;
+
+    if (product != null)
+    {
+        await Navigation.PushAsync(new ProductPage(product));
+    }
+}
+```
 
 ### Crear Componente y pasar datos staticos
 * **Componente:** xaml tipo ContentView
