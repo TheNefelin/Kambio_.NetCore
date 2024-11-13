@@ -12,7 +12,6 @@ public partial class ExplorerPage : ContentPage
     public ExplorerPage()
     {
         InitializeComponent();
-
         _productService = new ApiProductService();
         loading.IsVisible = true;
         BindingContext = this;
@@ -40,5 +39,10 @@ public partial class ExplorerPage : ContentPage
         {
             await Navigation.PushAsync(new ProductPage(product));
         }
+    }
+
+    private async void OnPublishClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new PublishPage());
     }
 }

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiKambio.Pages.PublishPage"
+             BackgroundColor="{StaticResource BackgroundGrey}"
+             Title="Publicar">
+
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="15">
+
+            <Frame>
+                <StackLayout>
+                    <Label Text="Nombre del Producto:" />
+                    <Entry Placeholder="Ingresa el nombre" />
+                </StackLayout>
+            </Frame>
+
+            <Frame>
+                <StackLayout>
+                    <Label Text="Descripción:" />
+                    <Editor Placeholder="Ingresa una breve descripción" HeightRequest="100" />
+                </StackLayout>
+            </Frame>
+
+            <Frame>
+                <StackLayout>
+                    <Label Text="Estado del Producto:" />
+                    <StackLayout Orientation="Horizontal">
+                        <RadioButton Content="Nuevo" GroupName="Status" />
+                        <RadioButton Content="Usado" GroupName="Status" />
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+
+            <Frame>
+                <StackLayout>
+                    <Label Text="Categoria del Producto:" />
+                    <Picker Title="Selecciona una Categoria" ItemsSource="{Binding Categories}" ItemDisplayBinding="{Binding Name}">
+                    </Picker>
+                </StackLayout>
+            </Frame>
+
+            <Frame>
+                <StackLayout>
+                    <Label Text="Categoria/s de Interes:" />
+
+                    <CollectionView ItemsSource="{Binding Categories}">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Vertical" Span="2" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <HorizontalStackLayout>
+                                    <CheckBox IsChecked="{Binding IsSelected}"/>
+                                    <Label Text="{Binding Name}" VerticalOptions="Center" />
+                                </HorizontalStackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </StackLayout>
+            </Frame>
+
+            <ScrollView Orientation="Horizontal">
+                <HorizontalStackLayout Spacing="5" HorizontalOptions="FillAndExpand">
+                    <Image x:Name="image1" HorizontalOptions="Center" Aspect="AspectFill" HeightRequest="300" WidthRequest="350" BackgroundColor="LightGray" />
+                    <Image x:Name="image2" HorizontalOptions="Center" Aspect="AspectFill" HeightRequest="300" WidthRequest="350" BackgroundColor="LightGray" />
+                    <Image x:Name="image3" HorizontalOptions="Center" Aspect="AspectFill" HeightRequest="300" WidthRequest="350" BackgroundColor="LightGray" />
+                </HorizontalStackLayout>
+            </ScrollView>
+            <Button Text="Cargar Imagen" Clicked="OnUploadImageClicked" />
+            
+            <Button Text="Publicar" BackgroundColor="LightPink" TextColor="White" Clicked="OnSubmitClicked" />
+
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>
