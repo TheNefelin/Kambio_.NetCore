@@ -3,38 +3,42 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:components="clr-namespace:MauiKambio.Components"
              x:Class="MauiKambio.Pages.NotificationPage"
+             BackgroundColor="{StaticResource BackgroundGrey}"
              Title="Notificaciones">
 
-    <StackLayout>
-        <ListView ItemsSource="{Binding Notifications}">
-            <ListView.ItemTemplate>
+    <ScrollView>
+        <CollectionView ItemsSource="{Binding Notifications}">
+            <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <ImageCell
-                        ImageSource="{Binding User_Img}"
-                        Text="{Binding User_Name}"
-                        Detail="{Binding Offer_Description}" />
+                    
+                    <Border Stroke="{StaticResource BackgroundGrey}" StrokeThickness="1">
+                        <SwipeView>
+                            <HorizontalStackLayout Background="White">
+                                <Image Source="{Binding User_Img}" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" HeightRequest="64" WidthRequest="64"/>
+
+                                <VerticalStackLayout VerticalOptions="Center" Margin="15,0" Spacing="6">
+                                    <Label Text="{Binding User_Name}"  Grid.Column="1" FontAttributes="Bold" TextColor="{StaticResource GreenHard}"/>
+                                    <Label Text="{Binding Offer_Description}" Grid.Column="1" TextColor="{StaticResource Gray600}" />
+                                </VerticalStackLayout>
+                            </HorizontalStackLayout>
+
+                            <SwipeView.LeftItems>
+                                <SwipeItems>
+                                    <SwipeItem Text="Chatear" IconImageSource="icon_chat_512.png" BackgroundColor="LightGreen"/>
+                                </SwipeItems>
+                            </SwipeView.LeftItems>
+                            
+                            <SwipeView.RightItems>
+                                <SwipeItems>
+                                    <SwipeItem Text="Rechazar" IconImageSource="icon_delete_512.png" BackgroundColor="LightPink" />
+                                </SwipeItems>
+                            </SwipeView.RightItems>
+                        </SwipeView>
+                    </Border>
+                    
                 </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-
-        <SwipeView>
-            <Grid HeightRequest="70" BackgroundColor="LightGray">
-                <Label Text="Swipe right" HorizontalOptions="Center" VerticalOptions="Center" />
-            </Grid>
-
-            <SwipeView.LeftItems>
-                <SwipeItems>
-                    <SwipeItem Text="Chatear" IconImageSource="icon_chat_512.png" BackgroundColor="LightGreen" />
-                </SwipeItems>
-            </SwipeView.LeftItems>
-
-            <SwipeView.RightItems>
-                <SwipeItems>
-                    <SwipeItem Text="Rechazar" IconImageSource="icon_delete_512.png" BackgroundColor="LightPink" />
-                </SwipeItems>
-            </SwipeView.RightItems>
-        </SwipeView>
-        
-    </StackLayout>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </ScrollView>
     
 </ContentPage>
