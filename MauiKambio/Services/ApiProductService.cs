@@ -90,7 +90,7 @@ namespace MauiKambio.Services
 
             ProductDTO prod3 = new()
             {
-                Id = 2,
+                Id = 3,
                 Name = "Nombre Producto 3",
                 User_Id = "C123456",
                 User_Name = "Care Chancla",

@@ -4,81 +4,37 @@ namespace MauiKambio.Components;
 
 public partial class ProductContent : ContentView
 {
-    // propiedad para el evento click del btn
+    // Evento que será manejado por el contenedor (la página que lo usa)
     public event EventHandler<ProductDTO> ProductClicked;
 
-    // propiedad que recibe el objeto ProductDTO
+    // Método que dispara el evento cuando se hace clic en el contenido del producto
+    private void OnProductClicked(object sender, EventArgs e)
+    {
+        if (Product != null)
+        {
+            ProductClicked?.Invoke(this, Product);  // Dispara el evento
+        }
+    }
+
+    // BindableProperty para enlazar el producto a este componente
     public static readonly BindableProperty ProductProperty =
         BindableProperty.Create(
             nameof(Product),
             typeof(ProductDTO),
             typeof(ProductContent),
-            default(ProductDTO),
-            propertyChanged: OnProductChanged
+            default(ProductDTO)
         );
 
-    // Propiedad pública para el enlace en XAML
+    // Propiedad de enlace para el producto
     public ProductDTO Product
     {
         get => (ProductDTO)GetValue(ProductProperty);
         set => SetValue(ProductProperty, value);
     }
 
-    // propiedad que recibe un string
-    public static readonly BindableProperty ButtonTextProperty =
-        BindableProperty.Create(
-            nameof(ButtonText),
-            typeof(string),
-            typeof(ProductContent),
-            default(string)
-        );
-
-    // Propiedad pública para el enlace en XAML
-    public string ButtonText
-    {
-        get => (string)GetValue(ButtonTextProperty);
-        set => SetValue(ButtonTextProperty, value);
-    }
-
-    // constructor
+    // Constructor donde se inicializa el componente
     public ProductContent()
     {
         InitializeComponent();
-    }
-
-    private static void OnProductChanged(BindableObject bindable, object oldValue, object newValue)
-    {
-        var control = (ProductContent)bindable;
-        control.SetStars();
-    }
-
-    private void SetStars()
-    {
-        btnProduct.Text = ButtonText;
-
-        if (string.IsNullOrEmpty(Product.Description))
-            textContent.IsVisible = false;
-
-        for (int i = 1; i <= 5; i++)
-        {
-            var star = (Image)this.FindByName($"star{i}");
-            star.Source = i <= Product.Stars ? "icon_star_v_512.png" : "icon_star_n_512.png";
-        }
-    }
-
-    private void OnGalleryScrolled(object sender, ItemsViewScrolledEventArgs e)
-    {
-        if (e.FirstVisibleItemIndex >= 0)
-        {
-            indicatorView.Position = e.FirstVisibleItemIndex;
-        }
-    }
-
-    private void OnProductClicked(object sender, EventArgs e)
-    {
-        if (Product != null)
-        {
-            ProductClicked?.Invoke(this, Product);
-        }
     }
 }

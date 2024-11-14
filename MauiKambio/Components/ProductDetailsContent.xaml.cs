@@ -12,7 +12,7 @@ public partial class ProductDetailsContent : ContentView
         BindableProperty.Create(
             nameof(Product),
             typeof(ProductDTO),
-            typeof(ProductContent),
+            typeof(ProductDetailsContent),
             default(ProductDTO),
             propertyChanged: OnProductChanged
         );
@@ -29,7 +29,7 @@ public partial class ProductDetailsContent : ContentView
         BindableProperty.Create(
             nameof(ButtonText),
             typeof(string),
-            typeof(ProductContent),
+            typeof(ProductDetailsContent),
             default(string)
         );
 

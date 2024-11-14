@@ -53,11 +53,8 @@ public partial class ExplorerPage : ContentPage
         await Navigation.PushAsync(new PublishPage());
     }
 
-    private async void OnProductClicked(object sender, EventArgs e)
+    private async void OnProductClicked(object sender, ProductDTO product)
     {
-        var imageButton = (ImageButton)sender;
-        var product = (ProductDTO)((BindableObject)imageButton.Parent).BindingContext;
-
         if (product != null)
         {
             await Navigation.PushAsync(new ProductPage(product));
