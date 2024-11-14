@@ -17,10 +17,22 @@
             <SearchBar Placeholder="Buscar" Background="{StaticResource GreenHard}"></SearchBar>
 
             <Grid>
-                <Button Text="Filtrar" ImageSource="icon_filter_g_32.phg" HorizontalOptions="Start" TextColor="{StaticResource GreenHard}" Background="Transparent"/>
+                <Button Clicked="OnFilterClicked" Text="Filtrar" ImageSource="icon_filter_g_32.phg" HorizontalOptions="Start" TextColor="{StaticResource GreenHard}" Background="Transparent"/>
                 <Button Clicked="OnPublishClicked" Text="Publicar" FontAttributes="Bold" CornerRadius="50" MinimumWidthRequest="120" HorizontalOptions="End"/>
             </Grid>
         </StackLayout>
+
+        <!--<StackLayout x:Name="FilterPanel" IsVisible="False" BackgroundColor="White" Padding="10">
+            <Label Text="Select Category" />
+            <Picker x:Name="CategoryPicker">
+                --><!-- Bind categories here --><!--
+            </Picker>
+
+            <Label Text="Price Range" />
+            <Slider Minimum="0" Maximum="1000" Value="{Binding FilteredPrice}" />
+
+            <Button Text="Apply Filter" Clicked="OnApplyFilterClicked" BackgroundColor="Green" TextColor="White"/>
+        </StackLayout>-->
 
         <ScrollView Grid.Row="1">
             <CollectionView ItemsSource="{Binding Products}">

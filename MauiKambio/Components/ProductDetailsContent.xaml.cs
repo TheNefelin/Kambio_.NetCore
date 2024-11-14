@@ -2,7 +2,7 @@ using ClassLibraryModels.DTOs;
 
 namespace MauiKambio.Components;
 
-public partial class ProductContent : ContentView
+public partial class ProductDetailsContent : ContentView
 {
     // propiedad para el evento click del btn
     public event EventHandler<ProductDTO> ProductClicked;
@@ -41,14 +41,14 @@ public partial class ProductContent : ContentView
     }
 
     // constructor
-    public ProductContent()
-    {
-        InitializeComponent();
-    }
+    public ProductDetailsContent()
+	{
+		InitializeComponent();
+	}
 
     private static void OnProductChanged(BindableObject bindable, object oldValue, object newValue)
     {
-        var control = (ProductContent)bindable;
+        var control = (ProductDetailsContent)bindable;
         control.SetStars();
     }
 

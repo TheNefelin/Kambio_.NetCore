@@ -10,7 +10,7 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate>
 
-                    <components:ProductContent Product="{Binding}" ButtonText="TRUEKE" ProductClicked="OnProductClicked"/>
+                    <components:ProductDetailsContent Product="{Binding}" ButtonText="TRUEKE" ProductClicked="OnProductClicked"/>
 
                 </DataTemplate>
             </CollectionView.ItemTemplate>

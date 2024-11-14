@@ -30,6 +30,29 @@ public partial class ExplorerPage : ContentPage
         loading.IsVisible = false;
     }
 
+    private async void OnFilterClicked(object sender, EventArgs e)
+    {
+        //FilterPanel.IsVisible = !FilterPanel.IsVisible;
+    }
+
+    private async void OnApplyFilterClicked(object sender, EventArgs e)
+    {
+        //var selectedCategory = CategoryPicker.SelectedItem as Category; // Example binding to category picker
+        //var maxPrice = FilteredPrice; // Example binding to price range slider
+
+        //// Apply the filtering logic
+        //var filteredProducts = Products.Where(p => p.Category == selectedCategory && p.Price <= maxPrice).ToList();
+        //Products = new ObservableCollection<Product>(filteredProducts);
+
+        // Hide the filter panel after applying filter
+        //FilterPanel.IsVisible = false;
+    }
+
+    private async void OnPublishClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new PublishPage());
+    }
+
     private async void OnProductClicked(object sender, EventArgs e)
     {
         var imageButton = (ImageButton)sender;
@@ -39,10 +62,5 @@ public partial class ExplorerPage : ContentPage
         {
             await Navigation.PushAsync(new ProductPage(product));
         }
-    }
-
-    private async void OnPublishClicked(object sender, EventArgs e)
-    {
-        await Navigation.PushAsync(new PublishPage());
     }
 }
