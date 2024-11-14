@@ -11,14 +11,16 @@
             <Frame>
                 <StackLayout>
                     <Label Text="Nombre del Producto:" />
-                    <Entry Placeholder="Ingresa el nombre" />
+                    <Entry x:Name="productNameEntry" Placeholder="Ingresa el nombre" />
+                    <Label x:Name="errorProductName" IsVisible="False" Text="* este campo es requerido" TextColor="Red"/>
                 </StackLayout>
             </Frame>
 
             <Frame>
                 <StackLayout>
                     <Label Text="Descripción:" />
-                    <Editor Placeholder="Ingresa una breve descripción" HeightRequest="100" />
+                    <Editor x:Name="descriptionEditor" Placeholder="Ingresa una breve descripción" HeightRequest="100" />
+                    <Label x:Name="errorProductDescription" IsVisible="False" Text="* este campo es requerido" TextColor="Red"/>
                 </StackLayout>
             </Frame>
 
@@ -26,8 +28,8 @@
                 <StackLayout>
                     <Label Text="Estado del Producto:" />
                     <StackLayout Orientation="Horizontal">
-                        <RadioButton Content="Nuevo" GroupName="Status" />
-                        <RadioButton Content="Usado" GroupName="Status" />
+                        <RadioButton x:Name="isNewRadioButton" Content="Nuevo" GroupName="statusRadioButton" />
+                        <RadioButton Content="Usado" GroupName="statusRadioButton" IsChecked="True"/>
                     </StackLayout>
                 </StackLayout>
             </Frame>
@@ -35,8 +37,9 @@
             <Frame>
                 <StackLayout>
                     <Label Text="Categoria del Producto:" />
-                    <Picker Title="Selecciona una Categoria" ItemsSource="{Binding Categories}" ItemDisplayBinding="{Binding Name}">
+                    <Picker x:Name="categoryPicker" Title="Selecciona una Categoria" ItemsSource="{Binding Categories}" ItemDisplayBinding="{Binding Name}">
                     </Picker>
+                    <Label x:Name="errorProductCategory" IsVisible="False" Text="* este campo es requerido" TextColor="Red"/>
                 </StackLayout>
             </Frame>
 
@@ -57,6 +60,8 @@
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
                     </CollectionView>
+
+                    <Label x:Name="errorProductCategoryOfInterest" IsVisible="False" Text="* se requerido seleccionar almenos 1" TextColor="Red"/>
                 </StackLayout>
             </Frame>
 

@@ -6,8 +6,10 @@ namespace MauiKambio.Pages;
 
 public partial class PublishPage : ContentPage
 {
-    private readonly ApiCategoryService _categoryService;
     public ObservableCollection<CategoryDTO> Categories { get; set; } = new();
+    private readonly CategoryDTO newCategory = new CategoryDTO();
+    private readonly List<ImageSource> uploadedImages = new List<ImageSource>();
+    private readonly ApiCategoryService _categoryService;
 
 	public PublishPage()
 	{
@@ -40,16 +42,60 @@ public partial class PublishPage : ContentPage
             var images = result.ToList();
 
             if (images.Count > 0)
-                image1.Source = ImageSource.FromFile(images[0].FullPath);
+            {
+                var imageSource = ImageSource.FromFile(images[0].FullPath);
+                image1.Source = imageSource;
+                uploadedImages.Add(imageSource);
+            }
             if (images.Count > 1)
-                image2.Source = ImageSource.FromFile(images[1].FullPath);
+            {
+                var imageSource = ImageSource.FromFile(images[1].FullPath);
+                image2.Source = imageSource;
+                uploadedImages.Add(imageSource);
+            }
             if (images.Count > 2)
-                image3.Source = ImageSource.FromFile(images[2].FullPath);
+            {
+                var imageSource = ImageSource.FromFile(images[2].FullPath);
+                image3.Source = imageSource;
+                uploadedImages.Add(imageSource);
+            }
         }
     }
 
     private void OnSubmitClicked(object sender, EventArgs e)
     {
+        errorProductName.IsVisible = false;
+        errorProductDescription.IsVisible = false;
+        errorProductCategory.IsVisible = false;
+        errorProductCategoryOfInterest.IsVisible = false;
+
+        ProductRequestDTO newProduct = new ProductRequestDTO()
+        {
+            Product_Name = productNameEntry.Text,
+            Product_Description = descriptionEditor.Text,
+            Product_IsNew = isNewRadioButton.IsChecked,
+            Product_Category = categoryPicker.SelectedItem as CategoryDTO,
+            Product_CategoryOfInterest = Categories.Where(category => category.IsSelected).ToList(),
+        };
+
+        if (string.IsNullOrEmpty(newProduct.Product_Name))
+            errorProductName.IsVisible = true;
+
+        if (string.IsNullOrEmpty(newProduct.Product_Description))
+            errorProductDescription.IsVisible = true;
+
+        if (newProduct.Product_Category == null)
+            errorProductCategory.IsVisible = true;
+
+        if(newProduct.Product_CategoryOfInterest.Count == 0)
+            errorProductCategoryOfInterest.IsVisible = true;
+
+        if (errorProductName.IsVisible || errorProductDescription.IsVisible || errorProductCategory.IsVisible || errorProductCategoryOfInterest.IsVisible)
+        {
+            DisplayAlert("Error", "Por favor completa todos los campos.", "OK");
+            return;
+        }
+
         // Lógica para manejar la acción de envío del formulario
         DisplayAlert("Formulario Enviado", "¡Gracias por tu información!", "OK");
     }
