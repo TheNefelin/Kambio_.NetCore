@@ -30,7 +30,7 @@
                             
                             <SwipeView.RightItems>
                                 <SwipeItems>
-                                    <SwipeItem Text="Rechazar" IconImageSource="icon_delete_512.png" BackgroundColor="LightPink" />
+                                    <SwipeItem Clicked="OnDelete" Text="Rechazar" IconImageSource="icon_delete_512.png" BackgroundColor="LightPink" />
                                 </SwipeItems>
                             </SwipeView.RightItems>
                         </SwipeView>

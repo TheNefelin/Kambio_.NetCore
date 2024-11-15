@@ -26,4 +26,12 @@ public partial class NotificationPage : ContentPage
             Notifications.Add(notification);
         }
     }
+
+    private async void OnDelete(object sender, EventArgs e)
+    {
+        if (sender is SwipeItem swipeItem && swipeItem.BindingContext is NotificationDTO notification)
+        {
+            Notifications.Remove(notification);
+        }
+    }
 }
