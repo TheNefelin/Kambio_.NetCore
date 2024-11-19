@@ -24,7 +24,7 @@
 
                             <SwipeView.LeftItems>
                                 <SwipeItems>
-                                    <SwipeItem Text="Chatear" IconImageSource="icon_chat_512.png" BackgroundColor="LightGreen"/>
+                                    <SwipeItem Clicked="OnChat" Text="Chatear" IconImageSource="icon_chat_512.png" BackgroundColor="LightGreen"/>
                                 </SwipeItems>
                             </SwipeView.LeftItems>
                             

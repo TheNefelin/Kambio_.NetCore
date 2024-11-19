@@ -27,6 +27,11 @@ public partial class NotificationPage : ContentPage
         }
     }
 
+    private async void OnChat(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new ChatPage());
+    }
+
     private async void OnDelete(object sender, EventArgs e)
     {
         if (sender is SwipeItem swipeItem && swipeItem.BindingContext is NotificationDTO notification)

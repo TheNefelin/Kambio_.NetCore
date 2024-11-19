@@ -18,8 +18,8 @@
             <SearchBar Placeholder="Buscar" Background="{StaticResource GreenHard}"></SearchBar>
 
             <Grid>
-                <Button Clicked="OnFilterClicked" Text="Filtrar" ImageSource="icon_filter_g_32.phg" HorizontalOptions="Start" TextColor="{StaticResource GreenHard}" Background="Transparent"/>
-                <Button Clicked="OnPublishClicked" Text="Publicar" FontAttributes="Bold" CornerRadius="50" MinimumWidthRequest="120" HorizontalOptions="End"/>
+                <Button Clicked="OnFilterClicked" Text="Filtrar" ImageSource="icon_filter_512.phg" HorizontalOptions="Start" TextColor="{StaticResource GreenHard}" FontAttributes="Bold" Background="Transparent" HeightRequest="40" Padding="0"/>
+                <Button Clicked="OnPublishClicked" Text="Publicar" FontAttributes="Bold" CornerRadius="50" MinimumWidthRequest="120" HorizontalOptions="End" HeightRequest="40"/>
             </Grid>
         </StackLayout>
 

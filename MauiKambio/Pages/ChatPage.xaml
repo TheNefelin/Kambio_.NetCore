@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiKambio.Pages.ChatPage"
+             BackgroundColor="{StaticResource BackgroundGrey}"
+             Title="Chat">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+
+        <ScrollView Grid.Row="0">
+            <StackLayout x:Name="ChatContainer" Padding="10" Spacing="10">
+                <!-- Example of a received message -->
+                <Frame CornerRadius="20" Padding="10" BackgroundColor="LightGray"
+                       HorizontalOptions="Start" Margin="0,0,50,0">
+                    <Label Text="Hola, ¿cómo estás?" TextColor="Black" />
+                </Frame>
+
+                <!-- Example of a sent message -->
+                <Frame CornerRadius="20" Padding="10" BackgroundColor="{StaticResource GreenHard}"
+                       HorizontalOptions="End" Margin="50,0,0,0">
+                    <Label Text="¡Hola! Todo bien, ¿y tú? igual por que chucha me escribes quien eres? aver dime algo" TextColor="White" />
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+
+        <Grid Grid.Row="1" ColumnSpacing="10" Padding="10" Background="White">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="auto" />
+            </Grid.ColumnDefinitions>
+
+            <Editor Grid.Column="0" AutoSize="TextChanges" Placeholder="Escribe un Mensahje" />
+
+            <Button Grid.Column="1" HeightRequest="50" WidthRequest="50" Padding="10" CornerRadius="50" BackgroundColor="{StaticResource BackgroundGrey}">
+                <Button.ImageSource>
+                    <FileImageSource File="icon_send_512.png"/>
+                </Button.ImageSource>
+            </Button>
+        </Grid>
+    </Grid>
+
+</ContentPage>
