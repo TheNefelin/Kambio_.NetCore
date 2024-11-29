@@ -1,5 +1,7 @@
+using ClassLibraryClient.Utills;
 using ClassLibraryModels.DTOs;
 using MauiKambio.Services;
+using Microsoft.Maui.Controls;
 using System.Collections.ObjectModel;
 
 namespace MauiKambio.Pages;
@@ -37,30 +39,41 @@ public partial class PublishPage : ContentPage
             PickerTitle = "Selecciona imágenes"
         });
 
+        await Navigation.PushModalAsync(new LoadingPage());
+
         if (result != null)
         {
             var images = result.ToList();
             uploadedImages.Clear();
 
-            if (images.Count > 0)
+            for (int i = 0; i < images.Count; i++) 
             {
-                var imageSource = ImageSource.FromFile(images[0].FullPath);
-                image1.Source = imageSource;
-                uploadedImages.Add(imageSource);
-            }
-            if (images.Count > 1)
-            {
-                var imageSource = ImageSource.FromFile(images[1].FullPath);
-                image2.Source = imageSource;
-                uploadedImages.Add(imageSource);
-            }
-            if (images.Count > 2)
-            {
-                var imageSource = ImageSource.FromFile(images[2].FullPath);
-                image3.Source = imageSource;
-                uploadedImages.Add(imageSource);
+                //var imageSource = ImageSource.FromFile(images[i].FullPath);
+                //uploadedImages.Add(imageSource);
+
+                var originalPath = images[i].FullPath;
+                var webpData = ImageConverter.ConvertToWebP(originalPath);
+                var webpImageSource = ImageSource.FromStream(() => new MemoryStream(webpData));
+
+                uploadedImages.Add(webpImageSource);
+
+                switch (i)
+                {
+                    case 0:
+                        //image1.Source = imageSource;
+                        image1.Source = webpImageSource;
+                        break;
+                    case 1:
+                        image2.Source = webpImageSource;
+                        break;
+                    case 2:
+                        image3.Source = webpImageSource;
+                        break;
+                }
             }
         }
+
+        await Navigation.PopModalAsync();
     }
 
     private async void OnSubmitClicked(object sender, EventArgs e)

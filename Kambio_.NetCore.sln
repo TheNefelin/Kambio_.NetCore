@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MauiKambio", "MauiKambio\Ma
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibraryModels", "ClassLibraryModels\ClassLibraryModels.csproj", "{D99C8530-569F-4381-BE9E-FF366E7E632E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibraryClient", "ClassLibraryClient\ClassLibraryClient.csproj", "{A16B0695-0E51-4C44-AE90-FD5A29AD6279}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +25,10 @@ Global
 		{D99C8530-569F-4381-BE9E-FF366E7E632E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D99C8530-569F-4381-BE9E-FF366E7E632E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D99C8530-569F-4381-BE9E-FF366E7E632E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A16B0695-0E51-4C44-AE90-FD5A29AD6279}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A16B0695-0E51-4C44-AE90-FD5A29AD6279}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A16B0695-0E51-4C44-AE90-FD5A29AD6279}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A16B0695-0E51-4C44-AE90-FD5A29AD6279}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

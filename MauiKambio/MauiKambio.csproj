@@ -69,6 +69,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\ClassLibraryClient\ClassLibraryClient.csproj" />
 	  <ProjectReference Include="..\ClassLibraryModels\ClassLibraryModels.csproj" />
 	</ItemGroup>
 
