@@ -11,6 +11,8 @@
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
 
+        <Image Source="logo.png" Opacity="0.2" />
+
         <ScrollView Grid.Row="0">
             <StackLayout x:Name="ChatContainer" Padding="10" Spacing="10">
                 <!-- Example of a received message -->
@@ -33,9 +35,9 @@
                 <ColumnDefinition Width="auto" />
             </Grid.ColumnDefinitions>
 
-            <Editor Grid.Column="0" AutoSize="TextChanges" Placeholder="Escribe un Mensahje" />
+            <Editor x:Name="EditorMessage" Grid.Column="0" AutoSize="TextChanges" Placeholder="Escribe un Mensaje" />
 
-            <Button Grid.Column="1" HeightRequest="50" WidthRequest="50" Padding="10" CornerRadius="50" BackgroundColor="{StaticResource BackgroundGrey}">
+            <Button Clicked="SendMessage" Grid.Column="1" HeightRequest="50" WidthRequest="50" Padding="10" CornerRadius="50" BackgroundColor="{StaticResource BackgroundGrey}">
                 <Button.ImageSource>
                     <FileImageSource File="icon_send_512.png"/>
                 </Button.ImageSource>

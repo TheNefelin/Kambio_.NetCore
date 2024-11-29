@@ -5,16 +5,20 @@
              x:Class="MauiKambio.Pages.ProductPage"
              Title="Artículo">
 
-    <ScrollView Grid.Row="1">
-        <CollectionView ItemsSource="{Binding Products}">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
+    <Grid>
+        <components:LoadingView x:Name="Loading" />
 
-                    <components:ProductDetailsContent Product="{Binding}" ButtonText="TRUEKE" ProductClicked="OnProductClicked"/>
+        <ScrollView Grid.Row="1">
+            <CollectionView ItemsSource="{Binding Products}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
 
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-    </ScrollView>
+                        <components:ProductDetailsContent Product="{Binding}" ButtonText="TRUEKE" ProductClicked="OnProductClicked"/>
 
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </ScrollView>
+    </Grid>
+    
 </ContentPage>

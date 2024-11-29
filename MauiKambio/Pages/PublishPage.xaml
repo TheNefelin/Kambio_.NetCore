@@ -72,10 +72,9 @@
                     <Image x:Name="image3" HorizontalOptions="Center" Aspect="AspectFill" HeightRequest="300" WidthRequest="350" BackgroundColor="LightGray" />
                 </HorizontalStackLayout>
             </ScrollView>
-            <Button Text="Cargar Imagen" Clicked="OnUploadImageClicked" />
-            
-            <Button Text="Publicar" BackgroundColor="LightPink" TextColor="White" Clicked="OnSubmitClicked" />
+            <Button Text="Cargar Imagen" BackgroundColor="{StaticResource GreenSoft}" Clicked="OnUploadImageClicked" />
 
+            <Button Text="Publicar" TextColor="White" Clicked="OnSubmitClicked" />
         </StackLayout>
     </ScrollView>
 

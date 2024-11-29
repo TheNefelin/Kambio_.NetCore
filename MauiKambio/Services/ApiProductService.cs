@@ -10,7 +10,7 @@ namespace MauiKambio.Services
             LoadDB();
         }
 
-        public List<ProductDTO> GetAll()
+        public async Task<List<ProductDTO>> GetAll()
         {
             List<ProductDTO> result = new();
 
@@ -35,10 +35,29 @@ namespace MauiKambio.Services
             return result;
         }
 
-        public ProductDTO? GetById(int id)
+        public async Task<List<ProductDTO>> GetAllLike()
         {
-            ProductDTO result = data.Find(e => e.Id == id);
-            return result;
+            return data
+                .Where(e => e.Like == true)
+                .Select(item => new ProductDTO
+                {
+                    Id = item.Id,
+                    Name = item.Name,
+                    User_Id = item.User_Id,
+                    User_Name = item.User_Name,
+                    User_Img = item.User_Img,
+                    Status = item.Status,
+                    Location = item.Location,
+                    Stars = item.Stars,
+                    Like = item.Like,
+                    Images = new List<ProductImageDTO> { item.Images[0] }
+                })
+                .ToList();
+        }
+
+        public async Task<ProductDTO?> GetById(int id)
+        {
+            return data.Find(e => e.Id == id);
         }
 
         private void LoadDB()

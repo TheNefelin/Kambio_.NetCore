@@ -40,6 +40,7 @@ public partial class PublishPage : ContentPage
         if (result != null)
         {
             var images = result.ToList();
+            uploadedImages.Clear();
 
             if (images.Count > 0)
             {
@@ -62,7 +63,7 @@ public partial class PublishPage : ContentPage
         }
     }
 
-    private void OnSubmitClicked(object sender, EventArgs e)
+    private async void OnSubmitClicked(object sender, EventArgs e)
     {
         errorProductName.IsVisible = false;
         errorProductDescription.IsVisible = false;
@@ -92,7 +93,13 @@ public partial class PublishPage : ContentPage
 
         if (errorProductName.IsVisible || errorProductDescription.IsVisible || errorProductCategory.IsVisible || errorProductCategoryOfInterest.IsVisible)
         {
-            DisplayAlert("Error", "Por favor completa todos los campos.", "OK");
+            await DisplayAlert("Error", "Por favor completa todos los campos.", "OK");
+            return;
+        }
+
+        if (uploadedImages.Count == 0)
+        {
+            await DisplayAlert("Error", "Por favor sube al menos una imagen.", "OK");
             return;
         }
 

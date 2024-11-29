@@ -23,18 +23,6 @@
             </Grid>
         </StackLayout>
 
-        <!--<StackLayout x:Name="FilterPanel" IsVisible="False" BackgroundColor="White" Padding="10">
-            <Label Text="Select Category" />
-            <Picker x:Name="CategoryPicker">
-                --><!-- Bind categories here --><!--
-            </Picker>
-
-            <Label Text="Price Range" />
-            <Slider Minimum="0" Maximum="1000" Value="{Binding FilteredPrice}" />
-
-            <Button Text="Apply Filter" Clicked="OnApplyFilterClicked" BackgroundColor="Green" TextColor="White"/>
-        </StackLayout>-->
-        
         <ScrollView Grid.Row="1">
             <CollectionView ItemsSource="{Binding Products}">
                 <CollectionView.ItemsLayout>
@@ -43,13 +31,15 @@
 
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        
+
                         <components:ProductContent Product="{Binding}" ProductClicked="OnProductClicked"/>
-                    
+
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
         </ScrollView>
+
+        <components:SideMenuView x:Name="SideMenu" />
     </Grid>
-    
+
 </ContentPage>

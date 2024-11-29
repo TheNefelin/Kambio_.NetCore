@@ -13,6 +13,7 @@ public partial class ProductPage : ContentPage
 	{
 		InitializeComponent();
 
+        Loading.IsLoading = true;
 		_productService = new ApiProductService();
         BindingContext = this;
         LoadProduct(productDTO);
@@ -20,11 +21,13 @@ public partial class ProductPage : ContentPage
 
     private async void LoadProduct(ProductDTO productDTO)
     {
-        var product = _productService.GetById(productDTO.Id);
+        var product = await _productService.GetById(productDTO.Id);
 
         if (product != null) {
             Products.Add(product);
         }
+
+        Loading.IsLoading = false;
     }
 
     private async void OnProductClicked(object sender, ProductDTO product)
