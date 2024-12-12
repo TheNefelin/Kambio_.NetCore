@@ -1,10 +1,20 @@
 ﻿# Kambio MauiApp .NET Core 8
 
+## Menu
+- [Ir a Editar iconos SVG](#editar-iconos-svg)
+- [Ir a Dependencias](#Dependencias)
+- [Ir a Estructura](#Estructura)
+- [Ir a Configuraciones](#configuraciones)
+- [Ir a Binding](#binding)
+- [Ir a ](#)
+ 
 ### Editar iconos SVG
 * [Photopea](https://www.photopea.com/)
 * [Controles MAUI](https://learn.microsoft.com/en-us/dotnet/maui/user-interface/controls/?view=net-maui-8.0)
 
 ### Dependencias
+```
+```
 
 ### Estructura
 ```
@@ -145,7 +155,8 @@ Application.Current.UserAppTheme = AppTheme.Light;
 <HorizontalStackLayout> </HorizontalStackLayout>
 ```
 
-## Binding (Vincular Datos con la Vista)
+## Binding 
+> (Vincular Datos con la Vista)
 ### Iterar una coleccion de elementos.
 * ObservableCollection: Permite manipular una colección reactiva.
 * El observable se debe llenar con los datos que obtienes del servicio.

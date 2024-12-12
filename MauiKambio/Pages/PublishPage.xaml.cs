@@ -1,7 +1,6 @@
 using ClassLibraryClient.Utills;
 using ClassLibraryModels.DTOs;
 using MauiKambio.Services;
-using Microsoft.Maui.Controls;
 using System.Collections.ObjectModel;
 
 namespace MauiKambio.Pages;
@@ -9,7 +8,7 @@ namespace MauiKambio.Pages;
 public partial class PublishPage : ContentPage
 {
     public ObservableCollection<CategoryDTO> Categories { get; set; } = new();
-    private readonly CategoryDTO newCategory = new CategoryDTO();
+    //private readonly CategoryDTO newCategory = new CategoryDTO();
     private readonly List<ImageSource> uploadedImages = new List<ImageSource>();
     private readonly ApiCategoryService _categoryService;
 

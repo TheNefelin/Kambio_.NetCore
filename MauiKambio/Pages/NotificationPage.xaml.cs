@@ -12,18 +12,28 @@ public partial class NotificationPage : ContentPage
     public NotificationPage()
 	{
 		InitializeComponent();
-        _notificationService = new ApiNotificationService();
         BindingContext = this;
+        _notificationService = new ApiNotificationService();
+
         LoadNotification();
     }
 
-    private async void LoadNotification()
+    private void LoadNotification()
     {
-        var notifications = _notificationService.GetAll();
-
-        foreach (var notification in notifications)
+        try
         {
-            Notifications.Add(notification);
+            var notifications = _notificationService.GetAll();
+
+            Notifications.Clear();
+            foreach (var notification in notifications)
+            {
+                Notifications.Add(notification);
+            }
+        }
+        catch (Exception ex)
+        {
+            // Manejo de errores para diagnosticar el problema.
+            DisplayAlert("Error", $"No se pudieron cargar las notificaciones: {ex.Message}", "OK");
         }
     }
 
