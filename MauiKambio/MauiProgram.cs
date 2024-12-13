@@ -6,6 +6,8 @@ namespace MauiKambio
 {
     public static class MauiProgram
     {
+        public static IServiceProvider ServiceProvider { get; private set; }
+
         public static MauiApp CreateMauiApp()
         {
             var builder = MauiApp.CreateBuilder();
@@ -17,17 +19,23 @@ namespace MauiKambio
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
-            builder.Services.AddSingleton(sp => new HttpClient { BaseAddress = new Uri("https://dragonra.bsite.net/") });
+            //builder.Services.AddSingleton(sp => new HttpClient { BaseAddress = new Uri("https://dragonra.bsite.net/") });
+            builder.Services.AddSingleton(sp => new HttpClient { BaseAddress = new Uri("https://localhost:7062/") });
+            builder.Services.AddSingleton<ApiCategoryService>();
             builder.Services.AddSingleton<ApiProductService>();
 
-            builder.Services.AddSingleton<ExplorerPage>();
-            builder.Services.AddSingleton<FavoritesPage>();
+            builder.Services.AddTransient<ExplorerPage>();
+            builder.Services.AddTransient<FavoritesPage>();
+            builder.Services.AddTransient<PublishPage>();
 
 #if DEBUG
             builder.Logging.AddDebug();
 #endif
 
-            return builder.Build();
+            var app = builder.Build();
+
+            ServiceProvider = app.Services; // Asigna el proveedor de servicios
+            return app;
         }
     }
 }

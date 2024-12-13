@@ -1,6 +1,6 @@
 ﻿using ClassLibraryModels.DTOs;
 
-namespace MauiKambio.Services
+namespace ClassLibraryClient.Services
 {
     public class ApiNotificationService
     {
@@ -16,7 +16,8 @@ namespace MauiKambio.Services
             return data;
         }
 
-        public NotificationDTO GetById(int id) { 
+        public NotificationDTO GetById(int id)
+        {
             var result = data.FirstOrDefault(e => e.Id == id);
             return result;
         }

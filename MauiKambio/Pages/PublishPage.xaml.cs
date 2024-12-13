@@ -1,7 +1,6 @@
 using ClassLibraryClient.Utills;
 using ClassLibraryClient.Services;
 using ClassLibraryModels.DTOs;
-using MauiKambio.Services;
 using System.Collections.ObjectModel;
 
 namespace MauiKambio.Pages;
@@ -10,14 +9,15 @@ public partial class PublishPage : ContentPage
 {
     private readonly ApiCategoryService _categoryService;
     private readonly ApiProductService _apiProductService;
-    public ObservableCollection<CategoryDTO> Categories { get; set; } = new();
     private readonly List<ImageSource> uploadedImages = new List<ImageSource>();
     private readonly ProductRequestDTO newProduct = new ProductRequestDTO();
+    public ObservableCollection<CategoryDTO> Categories { get; set; } = new();
 
-    public PublishPage()
+    public PublishPage(ApiCategoryService apiCategoryService, ApiProductService apiProductService)
 	{
 		InitializeComponent();
-        _categoryService = new ApiCategoryService();
+        _categoryService = apiCategoryService;
+        _apiProductService = apiProductService;
         BindingContext = this;
         LoadCategories();
     }
@@ -119,7 +119,8 @@ public partial class PublishPage : ContentPage
             return;
         }
 
-        await _apiProductService.Insert(newProduct);
+        //await _apiProductService.Insert(newProduct);
+        await _apiProductService.InsertImage(newProduct.Images);
         
         // Lógica para manejar la acción de envío del formulario
         await DisplayAlert("Formulario Enviado", "¡Gracias por tu información!", "OK");

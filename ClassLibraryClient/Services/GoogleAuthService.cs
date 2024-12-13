@@ -1,7 +1,7 @@
-﻿using WebApiTest.DTOs;
-using WebApiTest.Interfaces;
+﻿using ClassLibraryClient.Interfaces;
+using ClassLibraryModels.DTOs;
 
-namespace WebApiTest.Services
+namespace ClassLibraryClient.Services
 {
     public class GoogleAuthService : IGoogleAuthService
     {

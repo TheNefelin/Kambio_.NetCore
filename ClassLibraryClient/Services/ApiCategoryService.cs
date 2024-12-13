@@ -1,8 +1,8 @@
 ﻿using ClassLibraryModels.DTOs;
 
-namespace MauiKambio.Services
+namespace ClassLibraryClient.Services
 {
-    class ApiCategoryService
+    public class ApiCategoryService
     {
         private readonly List<CategoryDTO> data;
 
@@ -21,7 +21,8 @@ namespace MauiKambio.Services
             return result;
         }
 
-        private List<CategoryDTO> LoadDB() { 
+        private List<CategoryDTO> LoadDB()
+        {
             return new List<CategoryDTO>()
             {
                 new CategoryDTO() { Id = 1, Name = "Computación", IsSelected = false },

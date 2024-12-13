@@ -37,7 +37,8 @@ public partial class ExplorerPage : ContentPage
 
     private async void OnPublishClicked(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new PublishPage());
+        var publishPage = ActivatorUtilities.GetServiceOrCreateInstance<PublishPage>(MauiProgram.ServiceProvider);
+        await Navigation.PushAsync(publishPage);
     }
 
     private async void OnProductClicked(object sender, ProductDTO product)

@@ -1,5 +1,5 @@
+using ClassLibraryClient.Services;
 using ClassLibraryModels.DTOs;
-using MauiKambio.Services;
 using System.Collections.ObjectModel;
 
 namespace MauiKambio.Pages;
