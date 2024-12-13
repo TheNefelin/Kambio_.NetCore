@@ -13,7 +13,6 @@
         public bool Like { get; set; }
         public string Description { get; set; } = string.Empty;
         public string BarterFor { get; set; } = string.Empty;
-        public ProductImageDTO Image { get; set; } = new();
         public List<ProductImageDTO> Images { get; set; } = new();
     }
 }

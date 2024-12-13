@@ -7,6 +7,7 @@
         public bool Product_IsNew { get; set; }
         public CategoryDTO Product_Category { get; set; } = new CategoryDTO();
         public List<CategoryDTO> Product_CategoryOfInterest { get; set; } = new List<CategoryDTO>();
-        public string User_Id { get; set; }
+        public List<ImageDTO> Images { get; set; } = new();
+        //public string User_Id { get; set; }
     }
 }

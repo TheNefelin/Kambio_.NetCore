@@ -1,20 +1,29 @@
 ﻿using ClassLibraryModels.DTOs;
 
-namespace MauiKambio.Services
+namespace ClassLibraryClient.Services
 {
     public class ApiProductService
     {
+        private readonly HttpClient _httpClient;
         private readonly List<ProductDTO> data = new List<ProductDTO>();
 
-        public ApiProductService() {
+        public ApiProductService(HttpClient httpClient)
+        {
+            _httpClient = httpClient;
             LoadDB();
+        }
+
+        public async Task Insert(ProductRequestDTO product)
+        {
+
         }
 
         public async Task<List<ProductDTO>> GetAll()
         {
             List<ProductDTO> result = new();
 
-            foreach (var item in data) { 
+            foreach (var item in data)
+            {
                 ProductDTO dto = new()
                 {
                     Id = item.Id,
@@ -86,7 +95,6 @@ namespace MauiKambio.Services
                 Like = true,
                 Description = "Producto bla bla bla, Busco trueque por etc...",
                 BarterFor = $"{cat1.Name}, {cat3.Name}, {cat5.Name}",
-                Image = img1,
                 Images = new List<ProductImageDTO> { img1, img2, img3, },
             };
 
@@ -103,7 +111,6 @@ namespace MauiKambio.Services
                 Like = true,
                 Description = "Otro producto bla bla bla, Busco trueque por etc...",
                 BarterFor = $"{cat1.Name}, {cat2.Name}, {cat3.Name}, {cat4.Name}, {cat5.Name}, {cat6.Name}",
-                Image = img2,
                 Images = new List<ProductImageDTO> { img2, img1, },
             };
 
@@ -120,7 +127,6 @@ namespace MauiKambio.Services
                 Like = false,
                 Description = "Yaaa po Cambiamelo, yaaa po bla bla bla, Busco trueque por etc...",
                 BarterFor = $"{cat2.Name}, {cat3.Name}, {cat4.Name}, {cat5.Name}",
-                Image = img3,
                 Images = new List<ProductImageDTO> { img3, },
             };
 

@@ -1,5 +1,4 @@
 ﻿using SkiaSharp;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace ClassLibraryClient.Utills
 {

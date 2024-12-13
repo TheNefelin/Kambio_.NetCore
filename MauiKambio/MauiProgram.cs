@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using ClassLibraryClient.Services;
+using MauiKambio.Pages;
+using Microsoft.Extensions.Logging;
 
 namespace MauiKambio
 {
@@ -15,8 +17,14 @@ namespace MauiKambio
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
+            builder.Services.AddSingleton(sp => new HttpClient { BaseAddress = new Uri("https://dragonra.bsite.net/") });
+            builder.Services.AddSingleton<ApiProductService>();
+
+            builder.Services.AddSingleton<ExplorerPage>();
+            builder.Services.AddSingleton<FavoritesPage>();
+
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();

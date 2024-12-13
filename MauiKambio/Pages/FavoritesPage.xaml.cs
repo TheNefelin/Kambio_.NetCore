@@ -1,19 +1,18 @@
+using ClassLibraryClient.Services;
 using ClassLibraryModels.DTOs;
-using MauiKambio.Services;
 using System.Collections.ObjectModel;
-using System.Runtime.CompilerServices;
 
 namespace MauiKambio.Pages;
 
 public partial class FavoritesPage : ContentPage
 {
-    private readonly ApiProductService _productService;
+    private readonly ApiProductService _apiProductService;
     public ObservableCollection<ProductDTO> Products { get; set; } = new();
 
-    public FavoritesPage()
+    public FavoritesPage(ApiProductService apiProductService)
 	{
 		InitializeComponent();
-        _productService = new ApiProductService();
+        _apiProductService = apiProductService;
         loading.IsVisible = true;
         BindingContext = this;
         LoadFavorites();
@@ -21,7 +20,7 @@ public partial class FavoritesPage : ContentPage
 
     private async void LoadFavorites()
     {
-        var productList = await _productService.GetAllLike();
+        var productList = await _apiProductService.GetAllLike();
 
         foreach (var product in productList)
         {
@@ -35,7 +34,7 @@ public partial class FavoritesPage : ContentPage
     {
         if (product != null)
         {
-            await Navigation.PushAsync(new ProductPage(product));
+            await Navigation.PushAsync(new ProductPage(product, _apiProductService));
         }
     }
 }

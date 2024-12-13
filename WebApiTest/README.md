@@ -18,3 +18,5 @@ app.UseCors(options =>
     options.SetIsOriginAllowed(origin => true);
 });
 ```
+
+## Convertir Imagen

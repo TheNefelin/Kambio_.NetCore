@@ -1,4 +1,5 @@
 using ClassLibraryClient.Utills;
+using ClassLibraryClient.Services;
 using ClassLibraryModels.DTOs;
 using MauiKambio.Services;
 using System.Collections.ObjectModel;
@@ -7,12 +8,13 @@ namespace MauiKambio.Pages;
 
 public partial class PublishPage : ContentPage
 {
-    public ObservableCollection<CategoryDTO> Categories { get; set; } = new();
-    //private readonly CategoryDTO newCategory = new CategoryDTO();
-    private readonly List<ImageSource> uploadedImages = new List<ImageSource>();
     private readonly ApiCategoryService _categoryService;
+    private readonly ApiProductService _apiProductService;
+    public ObservableCollection<CategoryDTO> Categories { get; set; } = new();
+    private readonly List<ImageSource> uploadedImages = new List<ImageSource>();
+    private readonly ProductRequestDTO newProduct = new ProductRequestDTO();
 
-	public PublishPage()
+    public PublishPage()
 	{
 		InitializeComponent();
         _categoryService = new ApiCategoryService();
@@ -44,17 +46,22 @@ public partial class PublishPage : ContentPage
         {
             var images = result.ToList();
             uploadedImages.Clear();
+            newProduct.Images.Clear();
 
             for (int i = 0; i < images.Count; i++) 
             {
-                //var imageSource = ImageSource.FromFile(images[i].FullPath);
-                //uploadedImages.Add(imageSource);
-
                 var originalPath = images[i].FullPath;
                 var webpData = ImageConverter.ConvertToWebP(originalPath);
                 var webpImageSource = ImageSource.FromStream(() => new MemoryStream(webpData));
 
                 uploadedImages.Add(webpImageSource);
+
+                newProduct.Images.Add(new ImageDTO
+                {
+                    FileName = $"image{i + 1}.webp",
+                    Data = webpData,
+                    ContentType = "image/webp"
+                });
 
                 switch (i)
                 {
@@ -82,14 +89,11 @@ public partial class PublishPage : ContentPage
         errorProductCategory.IsVisible = false;
         errorProductCategoryOfInterest.IsVisible = false;
 
-        ProductRequestDTO newProduct = new ProductRequestDTO()
-        {
-            Product_Name = productNameEntry.Text,
-            Product_Description = descriptionEditor.Text,
-            Product_IsNew = isNewRadioButton.IsChecked,
-            Product_Category = categoryPicker.SelectedItem as CategoryDTO,
-            Product_CategoryOfInterest = Categories.Where(category => category.IsSelected).ToList(),
-        };
+        newProduct.Product_IsNew = isNewRadioButton.IsChecked;
+        newProduct.Product_Name = productNameEntry.Text;
+        newProduct.Product_Description = descriptionEditor.Text;
+        newProduct.Product_Category = (CategoryDTO)categoryPicker.SelectedItem;
+        newProduct.Product_CategoryOfInterest = Categories.Where(category => category.IsSelected).ToList();
 
         if (string.IsNullOrEmpty(newProduct.Product_Name))
             errorProductName.IsVisible = true;
@@ -100,7 +104,7 @@ public partial class PublishPage : ContentPage
         if (newProduct.Product_Category == null)
             errorProductCategory.IsVisible = true;
 
-        if(newProduct.Product_CategoryOfInterest.Count == 0)
+        if (newProduct.Product_CategoryOfInterest.Count == 0)
             errorProductCategoryOfInterest.IsVisible = true;
 
         if (errorProductName.IsVisible || errorProductDescription.IsVisible || errorProductCategory.IsVisible || errorProductCategoryOfInterest.IsVisible)
@@ -115,7 +119,9 @@ public partial class PublishPage : ContentPage
             return;
         }
 
+        await _apiProductService.Insert(newProduct);
+        
         // Lógica para manejar la acción de envío del formulario
-        DisplayAlert("Formulario Enviado", "¡Gracias por tu información!", "OK");
+        await DisplayAlert("Formulario Enviado", "¡Gracias por tu información!", "OK");
     }
 }

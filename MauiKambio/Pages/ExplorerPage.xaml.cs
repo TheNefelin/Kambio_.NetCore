@@ -1,18 +1,18 @@
+using ClassLibraryClient.Services;
 using ClassLibraryModels.DTOs;
-using MauiKambio.Services;
 using System.Collections.ObjectModel;
 
 namespace MauiKambio.Pages;
 
 public partial class ExplorerPage : ContentPage
 {
-    private readonly ApiProductService _productService;
+    private readonly ApiProductService _apiProductService;
     public ObservableCollection<ProductDTO> Products { get; set; } = new();
 
-    public ExplorerPage()
+    public ExplorerPage(ApiProductService apiProductService)
     {
         InitializeComponent();
-        _productService = new ApiProductService();
+        _apiProductService = apiProductService;
         loading.IsVisible = true;
         BindingContext = this;
         LoadProducts();
@@ -20,7 +20,7 @@ public partial class ExplorerPage : ContentPage
 
     private async void LoadProducts()
     {
-        var productList = await _productService.GetAll();
+        var productList = await _apiProductService.GetAll();
 
         foreach (var product in productList)
         {
@@ -44,7 +44,7 @@ public partial class ExplorerPage : ContentPage
     {
         if (product != null)
         {
-            await Navigation.PushAsync(new ProductPage(product));
+            await Navigation.PushAsync(new ProductPage(product, _apiProductService));
         }
     }
 }
