@@ -67,9 +67,9 @@
 
             <ScrollView Orientation="Horizontal">
                 <HorizontalStackLayout Spacing="5" HorizontalOptions="FillAndExpand">
-                    <Image x:Name="image1" HorizontalOptions="Center" Aspect="AspectFill" HeightRequest="300" WidthRequest="350" BackgroundColor="LightGray" />
-                    <Image x:Name="image2" HorizontalOptions="Center" Aspect="AspectFill" HeightRequest="300" WidthRequest="350" BackgroundColor="LightGray" />
-                    <Image x:Name="image3" HorizontalOptions="Center" Aspect="AspectFill" HeightRequest="300" WidthRequest="350" BackgroundColor="LightGray" />
+                    <Image x:Name="image1" HorizontalOptions="Center" Aspect="AspectFill" WidthRequest="350" HeightRequest="300" BackgroundColor="LightGray" />
+                    <Image x:Name="image2" HorizontalOptions="Center" Aspect="AspectFill" WidthRequest="350" HeightRequest="300" BackgroundColor="LightGray" />
+                    <Image x:Name="image3" HorizontalOptions="Center" Aspect="AspectFill" WidthRequest="350" HeightRequest="300" BackgroundColor="LightGray" />
                 </HorizontalStackLayout>
             </ScrollView>
             <Button Text="Cargar Imagen" BackgroundColor="{StaticResource GreenSoft}" Clicked="OnUploadImageClicked" />

@@ -6,48 +6,47 @@ namespace ClassLibraryClient.Services
     {
         private readonly HttpClient _httpClient;
 
-        public async Task<string> InsertImage(List<ImageDTO> images)
-        {
-            try
-            {
-
-            }
-            catch (Exception ex)
-            {
-
-            }
-
-            using var content = new MultipartFormDataContent();
-
-            foreach (var image in images)
-            {
-                var byteArrayContent = new ByteArrayContent(image.Data);
-                byteArrayContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue(image.ContentType);
-
-                content.Add(byteArrayContent, "images", image.FileName);
-            }
-
-            var response = await _httpClient.PostAsync("/api/images", content);
-
-            if (response.IsSuccessStatusCode)
-            {
-                var responseContent = await response.Content.ReadAsStringAsync();
-                return responseContent; // Podrías devolver el mensaje del servidor
-            }
-            else
-            {
-                throw new HttpRequestException($"Error al subir imágenes: {response.StatusCode}");
-            }
-        }
-
-        private readonly List<ProductDTO> data = new List<ProductDTO>();
-
         public ApiProductService(HttpClient httpClient)
         {
             _httpClient = httpClient;
             LoadDB();
         }
-        
+
+        public async Task<string> InsertImage(List<ImageDTO> images)
+        {
+            try
+            {
+
+                using var content = new MultipartFormDataContent();
+
+                foreach (var image in images)
+                {
+                    var byteArrayContent = new ByteArrayContent(image.Data);
+                    byteArrayContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue(image.ContentType);
+
+                    content.Add(byteArrayContent, "images", image.FileName);
+                }
+
+                var response = await _httpClient.PostAsync("/api/images", content);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var responseContent = await response.Content.ReadAsStringAsync();
+                    return responseContent; // Podrías devolver el mensaje del servidor
+                }
+                else
+                {
+                    throw new HttpRequestException($"Error al subir imágenes: {response.StatusCode}");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new HttpRequestException($"Error al subir imágenes: {ex.Message}");
+            }
+        }
+
+        private readonly List<ProductDTO> data = new List<ProductDTO>();
+                
         public async Task Insert(ProductRequestDTO product)
         {
 

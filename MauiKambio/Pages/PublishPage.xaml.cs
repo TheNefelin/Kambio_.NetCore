@@ -1,7 +1,7 @@
-using ClassLibraryClient.Utills;
 using ClassLibraryClient.Services;
 using ClassLibraryModels.DTOs;
 using System.Collections.ObjectModel;
+using ClassLibraryModels.Services;
 
 namespace MauiKambio.Pages;
 
@@ -51,7 +51,7 @@ public partial class PublishPage : ContentPage
             for (int i = 0; i < images.Count; i++) 
             {
                 var originalPath = images[i].FullPath;
-                var webpData = ImageConverter.ConvertToWebP(originalPath);
+                var webpData = ImageProcess.ToWebpAndResize(originalPath);
                 var webpImageSource = ImageSource.FromStream(() => new MemoryStream(webpData));
 
                 uploadedImages.Add(webpImageSource);
