@@ -16,7 +16,6 @@ namespace ClassLibraryClient.Services
         {
             try
             {
-
                 using var content = new MultipartFormDataContent();
 
                 foreach (var image in images)

@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ClassLibraryModels\ClassLibraryModels.csproj" />
+    <ProjectReference Include="..\ClassLibraryServer\ClassLibraryServer.csproj" />
   </ItemGroup>
 
   <ItemGroup>

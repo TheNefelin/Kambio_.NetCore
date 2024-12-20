@@ -120,9 +120,11 @@ public partial class PublishPage : ContentPage
         }
 
         //await _apiProductService.Insert(newProduct);
-        await _apiProductService.InsertImage(newProduct.Images);
+        //await _apiProductService.InsertImage(newProduct.Images);
         
         // Lógica para manejar la acción de envío del formulario
         await DisplayAlert("Formulario Enviado", "¡Gracias por tu información!", "OK");
+
+        await Navigation.PopAsync();
     }
 }

@@ -1,8 +1,8 @@
-﻿using ClassLibraryModels.DTOs;
+﻿using ClassLibraryModels.DTOs.Auth;
 
-namespace ClassLibraryServer.Interfaces
+namespace ClassLibraryClient.Interfaces
 {
-    public interface IGoogleAuthService
+    public interface IAuthGoogleService
     {
         public Task<UserGoogleDTO> AuthenticateAsync();
         public Task<UserGoogleDTO> GetCurrentUserAsync();

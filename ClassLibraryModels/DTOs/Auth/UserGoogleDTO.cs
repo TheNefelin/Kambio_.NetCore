@@ -1,4 +1,4 @@
-﻿namespace ClassLibraryModels.DTOs
+﻿namespace ClassLibraryModels.DTOs.Auth
 {
     public class UserGoogleDTO
     {
