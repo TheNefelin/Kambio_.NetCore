@@ -29,8 +29,6 @@ graph TD;
 <img src="\Requerimiento\Docs\img01.png" alt="img01" width="100px"/>
 
 <div>
-    <img src="\Requerimiento\Docs\img02.jpg" alt="img02" width="250px"/>
-    &nbsp;
     <img src="\Requerimiento\Docs\img03.jpg" alt="img03" width="250px"/>
     &nbsp;
     <img src="\Requerimiento\Docs\img04.jpg" alt="img04" width="250px"/>
@@ -38,6 +36,8 @@ graph TD;
     <img src="\Requerimiento\Docs\img05.jpg" alt="img05" width="250px"/>
     &nbsp;
     <img src="\Requerimiento\Docs\img06.jpg" alt="img06" width="250px"/>
-    &nbsp;	
+    &nbsp;
+    <img src="\Requerimiento\Docs\img02.jpg" alt="img02" width="250px"/>
+    &nbsp;    
 </div>
 
